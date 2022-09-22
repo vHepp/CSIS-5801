@@ -1,5 +1,5 @@
 import './App.css';
-
+import React from 'react';
 import Home from './Components/Home';
 import Test from './Components/Test';
 
@@ -9,6 +9,7 @@ const App = () => {
     <div className="App">
       <Home />
 
+      <Test />
       <Test />
       <Test />
       <Test />
