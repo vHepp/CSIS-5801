@@ -7,7 +7,7 @@ const Test = () => {
 		<div className='test-body'>
 			Test
 			<p>
-				Hello World! This is my first project! {x}
+				Hello World! {x}
 			</p>
 		</div>
 	)
