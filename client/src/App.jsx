@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 import Home from './Components/Home';
 import Test from './Components/Test';
-
+import Login from './Components/Login';
 const App = () => {
 
   return (
@@ -14,6 +14,7 @@ const App = () => {
       <Test />
       <Test />
       <Test />
+      <Login/>
 
     </div>
   );
