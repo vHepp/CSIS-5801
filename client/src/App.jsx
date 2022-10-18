@@ -1,7 +1,10 @@
 import './App.css';
-
+import React from 'react';
 import Home from './Components/Home';
 import Test from './Components/Test';
+
+
+import Login from './Components/Login';
 import Ethan from './Components/Ethan';
 
 const App = () => {
@@ -9,10 +12,9 @@ const App = () => {
   return (
     <div className="App">
       <Home />
-
-      <Test />
-      <Test />
-      <Test />
+      
+      <Login/>
+      
       <Ethan />
 
     </div>
