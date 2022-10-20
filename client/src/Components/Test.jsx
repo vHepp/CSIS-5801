@@ -1,5 +1,6 @@
 import React from 'react'
 import '../Styles/Test.css'
+import Aaron from "./Aaron"
 
 const Test = () => {
 	let x = 0;
@@ -8,6 +9,8 @@ const Test = () => {
 			Test
 			<p>
 				Hello World! {x}
+
+				<Aaron />
 			</p>
 		</div>
 	)
