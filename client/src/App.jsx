@@ -1,6 +1,7 @@
 import './App.css';
 
 import Home from './Components/Home';
+import ProfilePage from './Components/ProfilePage';
 import Test from './Components/Test';
 
 const App = () => {
@@ -9,10 +10,7 @@ const App = () => {
     <div className="App">
       <Home />
 
-      <Test />
-      <Test />
-      <Test />
-      <Test />
+      <ProfilePage />
 
     </div>
   );
