@@ -13,9 +13,11 @@
   },
   "dependencies": {
     "cors": "^2.8.5",
+    "CSIS-5801": "file:..",
     "dotenv": "^16.0.2",
     "express": "^4.18.1",
+    "mern-app": "file:..",
     "mongodb": "^4.10.0",
-    "CSIS-5801": "file:.."
+    "mongoose": "^6.6.2"
   }
 }

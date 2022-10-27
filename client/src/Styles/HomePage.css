@@ -1,10 +1,10 @@
 .home-title {
-    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-size: 60px;
     border: solid 2px;
     border: radius 20px;
-    background-color:grey;
-    
+    background-color: grey;
+
 }
 
 .home-intro {
@@ -12,13 +12,14 @@
 }
 
 .home-main {
+    text-align: center;
     border: solid 3px black;
     border-radius: 15px;
     font-size: 20px;
     padding-bottom: 1%;
 }
 
-.home-OpenedRooms{
+.home-OpenedRooms {
     float: none;
     font-size: 30px;
     padding-top: 3%;

@@ -1,17 +1,31 @@
 import './App.css';
+import { useReducer, useMemo } from 'react';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from './Components/Home';
-import Test from './Components/Test';
+import NavBar from './Components/NavBar';
+import { userContext } from './userContext'
 import HomePage from './Components/HomePage';
-
+import Login from './Components/Login';
+import SignUp from './Components/SignUp';
+import { reducer, initialState } from './reducers/userReducer';
 const App = () => {
+  const [state, dispatch] = useReducer(reducer, initialState);
+  const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
 
   return (
-    <div className="App">
-      <Home />
-      <HomePage />
+    <BrowserRouter>
+      <userContext.Provider value={value}>
+        <NavBar />
+        <Routes>
+          <Route path='/' element={<HomePage />} />
+          <Route path='/login' element={<Login />} />
 
-    </div>
+          {/* to be implemented  */}
+          <Route path='/register' element={<SignUp />} />
+          {/* <Route path='/profile' element={<Profile />} /> */}
+        </Routes>
+      </userContext.Provider >
+    </BrowserRouter>
   );
 }
 
