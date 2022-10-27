@@ -1,7 +1,7 @@
 // UserModel.js
 // Ethan Gill, 10/18/2022
 
-const mongoose = require(mongoose);
+const mongoose = require("mongoose");
 
 const userSchema = new mongoose.Schema(
     {
@@ -22,8 +22,8 @@ const userSchema = new mongoose.Schema(
             contentType: String
         }
     }, {
-        timestamps: true
-    }
+    timestamps: true
+}
 );
 
 const User = mongoose.model("User", userSchema);

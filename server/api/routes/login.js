@@ -2,9 +2,18 @@
 const express = require("express");
 const router = express.Router();
 
-// handle requests for "/login"
+// GET
+// /api/login/login
 router.get("/login", (req, res) => {
-    res.send("Login Route");
+    console.log("In /Login get route")
+    res.send("Login postRoute");
+});
+
+// POST
+// /api/login/login
+router.post("/login", (req, res) => {
+    console.log("In /Login post route")
+    res.send("Login post Route");
 });
 
 // import the router
