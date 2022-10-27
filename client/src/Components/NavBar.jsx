@@ -11,7 +11,7 @@ const NavBar = () => {
 			<NavLink className='navbar-item' to='/login'>Login</NavLink>
 
 			{/* to be implemented */}
-			<NavLink className='navbar-item' to='/'>Register</NavLink>
+			<NavLink className='navbar-item' to='/register'>Register</NavLink>
 			<NavLink className='navbar-item' to='/'>Profile</NavLink>
 
 		</div>
