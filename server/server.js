@@ -5,7 +5,7 @@ require("dotenv").config({ path: "./config.env" });
 
 //importing routes
 const TestRoute = require('./api/routes/TestRoute')
-
+const authRoute = require('api/routes/auth');
 const PORT = process.env.PORT || 8001; // these will be set up with a .env file for everyone's unique dev environment
 const MONGO_URI = process.env.MONGO_URI;
 
@@ -15,8 +15,8 @@ server.use(cors())
 server.use(express.json());
 
 //routes
-server.use('/api/test/', TestRoute)
-
+server.use('/api/test/', TestRoute);
+server.use('/api', authRoutes);
 
 //catch-all
 server.get('/*', (req, res) => {
