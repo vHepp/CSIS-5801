@@ -6,7 +6,7 @@ const router = express.Router();
 // /api/login/login
 router.get("/login", (req, res) => {
     console.log("In /Login get route")
-    res.send("Login postRoute");
+    res.send("Login get Route");
 });
 
 // POST

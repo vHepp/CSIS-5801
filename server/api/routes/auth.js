@@ -5,7 +5,9 @@ const bcrypt = require('bcrypt');
 const express = require("express");
 const route = express.Router();
 
-//localhost:{PORT}/api/test/login
+
+// GET
+//localhost:{PORT}/api/auth/login
 route.get('/login', (req, res) => {
     let { email, password } = req.body;
     let errors = [];

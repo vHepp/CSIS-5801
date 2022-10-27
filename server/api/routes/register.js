@@ -2,8 +2,9 @@
 const express = require("express");
 const router = express.Router();
 
-// handle requests for "/register"
-router.get("/register", (req, res) => {
+// GET
+// /api/register/add
+router.get("/add", (req, res) => {
     res.send("Register Route");
 });
 
