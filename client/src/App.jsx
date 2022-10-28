@@ -3,11 +3,13 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 import './App.css';
 
+
 //Components
 import NavBar from './Components/NavBar';
 import HomePage from './Components/HomePage';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
+import ProfilePage from './Components/ProfilePage';
 
 //Reducers
 import { reducer, initialState } from './reducers/userReducer';
@@ -29,6 +31,7 @@ const App = () => {
           <Route path='/' element={<HomePage />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignUp />} />
+          <Route path='/profile' element={<ProfilePage />} />
 
 
           {/* to be implemented  */}
