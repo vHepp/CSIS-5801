@@ -38,7 +38,7 @@ const HomePage = () => {
         <div>
           <input id="addRoomBtn" placeholder="room name" className='home-input'>
           </input>
-          <button onClick={addRoom}>
+          <button className = "home-btn" onClick={addRoom}>
             Add
           </button>
           <div>
@@ -51,10 +51,14 @@ const HomePage = () => {
         <div>
           <div className='home-OpenedRooms'>
             Opened Rooms:
-            <RoomContext.Provider value={{ rooms, changeRooms }}>
-              <Room name={rooms[0]} number={1} />
-              <Room name={rooms[1]} number={2} />
-              <Room name={rooms[2]} number={3} />
+            <RoomContext.Provider value={{ 
+              rooms, changeRooms, 
+              roomCount, changeRoomCount, 
+              openRooms, changeOpenRooms 
+              }}>
+              {rooms[0] && <Room name={rooms[0]} number={1} />}
+              {rooms[1] && <Room name={rooms[1]} number={2} />}
+              {rooms[2] && <Room name={rooms[2]} number={3} />}
             </RoomContext.Provider>
           </div>
         </div>
