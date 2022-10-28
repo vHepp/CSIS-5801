@@ -17,6 +17,7 @@ import { reducer, initialState } from './reducers/userReducer';
 //Contexts
 import { userContext } from './contexts/userContext'
 import { roomContext } from './contexts/roomContext'
+import InviteTest from './Components/InviteTest';
 
 
 const App = () => {
@@ -32,6 +33,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/profile' element={<ProfilePage />} />
+          <Route path='/invite' element={<InviteTest />} />
 
 
           {/* to be implemented  */}
