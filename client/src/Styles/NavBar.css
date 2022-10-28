@@ -1,0 +1,19 @@
+.navbar {
+	margin: 5px;
+	padding: 10px;
+	text-align: center;
+	justify-content: center;
+
+	display: flex;
+	flex-flow: row wrap;
+	background-color: rgb(95, 241, 217);
+
+	border: 1px solid black;
+	border-radius: 7px;
+}
+
+.navbar-item {
+	font-size: 25px;
+	margin-left: 3%;
+	margin-right: 3%;
+}

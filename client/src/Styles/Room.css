@@ -1,0 +1,15 @@
+.room-room {
+	margin: 10px;
+	font-size: 40px;
+	border: solid 3px black;
+	border-radius: 15px;
+	background-color: rgba(116, 225, 233, 0.898);
+}
+
+.room-number {
+    font-size:20px;
+}
+
+.room-link {
+    font-size:20px;
+}

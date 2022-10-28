@@ -1,35 +1,27 @@
-import React,{useState} from 'react'
+import React, { useEffect, useState } from 'react'
 import "../Styles/ProfilePage.css"
 
-const ProfilePage = () => {
-  const[email, setEmail, name, setName]= useState("Rob@Steveware.com")
+import Image from "../Images/istockphoto.jpeg"
 
+const ProfilePage = () => {
+  const [email, setEmail] = useState("Rob@KeithBoard.gov")
+  const [name, setName] = useState("Robbie")
+  const [picture, setPicture] = useState(Image)
 
   return (
-    <div className="ProfilePage"> 
-        
-    <a href= "react" >ProfilePage</a>
+    <div className="ProfilePage">
 
-    <h2><label for="picture">Profile Picture </label>
-   
-    <img src="" picture="picture" /> </h2>
+      <div className='user-image-container'>
+        <img className='user-image' alt="" src={picture} />
+      </div>
 
-    <h2><label for="email">Your Email </label>
-    <input email="email" value={email} onChange={
-    (e)=>{setEmail(e.target.value)}
-    } placeholder= "Rob@Steveware.com" /></h2>
+      <div className="user-data">
+        <h2>{email}</h2>
+        <h2>{name}</h2>
 
-    <h2><label for="name">Your Name </label>
-    <input name="name"
-    value={name} onChange={(e)=>{setName(e.target.value)}} placeholder= "Rob DiDomenico" /></h2>
+      </div>
 
-    <button type="update">Update </button>
-    
-    <h1>{email}</h1>
-    <h1>{name}</h1>
-
-
-     </div>
+    </div >
   )
 }
 
