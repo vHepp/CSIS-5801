@@ -10,7 +10,7 @@ const config = {
 }
 
 async function signUpUser(formData) {
-    return axios.post(`http://localhost:8000/api/signup`, formData, config)
+    return axios.post(`http://localhost:8000/server/api/signup`, formData, config)
         .then(res => {
             return res.data
         })
