@@ -1,0 +1,13 @@
+.pageheader-body {
+	margin-left: 15px;
+	margin-right: 15px;
+	font-size: 40px;
+	font-family: 'Trebuchet MS';
+	font-weight: bold;
+	color: var(--text-light);
+	
+	border: solid 2px var(--box-outline);
+
+	border-radius: 0px;
+	background-color: var(--box-color);
+}
