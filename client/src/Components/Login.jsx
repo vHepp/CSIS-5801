@@ -1,19 +1,15 @@
 import React, { useState } from 'react'
+import axios from 'axios';
 import '../Styles/Login.css'
 
 async function LoginUser(credentials) {
-    return fetch('http://localhost:8000/api/login/login', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(credentials)
-    }).then(data => {
-        data.json()
-        console.table(data);
+    return axios.post('/api/login/login', {
+        username: credentials.username,
+        password: credentials.password
+    }).then(response => {
+        console.log(response.data);
     })
 }
-
 
 const Login = () => {
 
@@ -22,7 +18,8 @@ const Login = () => {
 
     async function onSubmit() {
         const token = await LoginUser({
-            username, password
+            username: username,
+            password: password
         })
     }
 
@@ -49,7 +46,7 @@ const Login = () => {
 
             <button onClick={() => onSubmit()}> Login! </button>
             <button onClick={() => {
-                return fetch('http://localhost:8000/api/login/login', {
+                return fetch('/api/login/login', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json'
