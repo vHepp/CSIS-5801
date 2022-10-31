@@ -1,4 +1,5 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
+import {userContext} from '../contexts/userContext'
 import '../Styles/Login.css'
 
 async function LoginUser(credentials) {
@@ -8,33 +9,41 @@ async function LoginUser(credentials) {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify(credentials)
-    }).then(data => {
-        data.json()
-        console.table(data);
-    })
+    }).then(data => data.json())
 }
 
 
 const Login = () => {
-
-    const [username, setUsername] = useState('');
+    const {state, dispatch} = useContext(userContext);
+    console.log(state)
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
     async function onSubmit() {
         const token = await LoginUser({
-            username, password
+            email, password
         })
+
+        if (token.success){
+            token.message.isLoggedIn = true;
+            localStorage.setItem('jwt', token.token);
+            localStorage.setItem("user", JSON.stringify(token.message))
+            const user = JSON.parse(localStorage.getItem("user"))
+            console.log(user)
+            dispatch({ type: "USER", payload: user})
+        }
+            return token;
     }
 
     return (
         <div className='login-box'>
             <div className='username'>
-                <label >Username:
+                <label >Email:
                     <input type="text"
                         required
                         className="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}></input>
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}></input>
                 </label>
             </div>
             <div className='password'>
