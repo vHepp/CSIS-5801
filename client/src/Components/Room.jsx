@@ -25,7 +25,7 @@ const Room = (props) => {
         Room Number: {props.number}
       </div>
       <div className='room-link'>
-        <a href="">Link:</a>
+        {props.LinkToWebex}
       </div>
       <button onClick={() => clearRoom(props.number - 1)}>
         Clear Room

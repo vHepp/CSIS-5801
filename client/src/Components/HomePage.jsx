@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import '../Styles/HomePage.css'
 import Room from './Room.jsx'
+import InviteTest from './InviteTest.jsx'
 import { RoomContext } from "../contexts/roomContext.js";
 
 const HomePage = () => {
@@ -66,9 +67,9 @@ const HomePage = () => {
               roomCount, changeRoomCount, 
               openRooms, changeOpenRooms 
               }}>
-              {rooms[0] && <Room name={rooms[0]} number={1} />}
-              {rooms[1] && <Room name={rooms[1]} number={2} />}
-              {rooms[2] && <Room name={rooms[2]} number={3} />}
+              {rooms[0] && <Room name={rooms[0]} number={1} LinkToWebex = {<InviteTest/>} />}
+              {rooms[1] && <Room name={rooms[1]} number={2} LinkToWebex = {<InviteTest/>} />}
+              {rooms[2] && <Room name={rooms[2]} number={3} LinkToWebex = {<InviteTest/>} />}
             </RoomContext.Provider>
           </div>
         </div>
