@@ -16,8 +16,9 @@ const ProfilePage = () => {
       </div>
 
       <div className="user-data">
-        <h2>{email}</h2>
-        <h2>{name}</h2>
+        Email: <b>{email}</b>
+        <br></br>
+        Name: <b>{name}</b>
 
       </div>
 

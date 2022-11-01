@@ -21,15 +21,12 @@ const HomePage = () => {
 
   return (
     <div className='home-main'>
-      <h1 className='home-title'>
-        KeithBoard
-      </h1>
       <div className='home-intro'>
         <p>
           Welcome to KeithBoard!
         </p>
         <p>
-          We are an interractive virtual classroom designed for
+          A interactive virtual classroom designed for
           group communication.
         </p>
         <p>

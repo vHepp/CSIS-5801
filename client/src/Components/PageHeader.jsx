@@ -4,7 +4,9 @@ import '../Styles/PageHeader.css'
 const PageHeader = () => {
     return(
         <div className='pageheader'>
-            KeithBoard
+            <b>Keith</b>Board
         </div>
     )
 }
+
+export default PageHeader

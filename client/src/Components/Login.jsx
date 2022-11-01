@@ -24,36 +24,38 @@ const Login = () => {
     }
 
     return (
-        <div className='login-box'>
-            <div className='username'>
-                <label >Username:
-                    <input type="text"
-                        required
-                        className="username"
-                        value={username}
-                        onChange={(e) => setUsername(e.target.value)}></input>
-                </label>
-            </div>
-            <div className='password'>
-                <label >Password:
-                    <input type="text"
-                        required
-                        className="username"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}></input>
-                </label>
-            </div>
+        <div className='login-main'>
+            <div className='login-box'>
+                <div className='username'>
+                    <label >Username:
+                        <input type="text"
+                            required
+                            className="username"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}></input>
+                    </label>
+                </div>
+                <div className='password'>
+                    <label >Password:
+                        <input type="text"
+                            required
+                            className="username"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}></input>
+                    </label>
+                </div>
 
-            <button onClick={() => onSubmit()}> Login! </button>
-            <button onClick={() => {
-                return fetch('/api/login/login', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                }).then(data => console.log(`PING`))
-            }}> Ping! </button>
+                <button className='login-button' onClick={() => onSubmit()}> Login! </button>
+                <button className='login-button' onClick={() => {
+                    return fetch('/api/login/login', {
+                        method: 'GET',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                    }).then(data => console.log(`PING`))
+                }}> Ping! </button>
 
+            </div>
         </div>
     )
 }

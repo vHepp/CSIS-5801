@@ -1,12 +1,21 @@
+.invitetest-main {
+	background-color: var(--bg2-color);
+    height:36em;
+    padding-top: 3em;
+}
+
 .box {
 	width: 40%;
-	height: 25em;
+	height: 5em;
 	background-color: var(--bg-color);
 	display: block;
 	margin: auto;
-	margin-top: 3em;
-	border: var(--border-style);
+	border: solid 5px var(--bg-outline);
 	padding: 10px;
+
+	text-align: center;
+	font-size: 18pt;
+	font-family: var(text1);
 }
 
 label {
@@ -16,7 +25,7 @@ label {
 	text-align: right;
 	width: 400px;
 	line-height: 26px;
-	margin-top: 10px;
+	margin: 10px;
 }
 
 

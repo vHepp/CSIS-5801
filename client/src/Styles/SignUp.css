@@ -1,15 +1,24 @@
+.signup-main {
+    background-color: var(--bg2-color);
+    height:fit-content;
+    padding-top: 3em;
+    padding-bottom:10em;
+}
+
 .box1 {
     width: 40%;
-    height: 25em;
+    height: fit-content;
     background-color: var(--bg-color);
     display: block;
     margin: auto;
-    margin-top: 3em;
-    border: var(--border-style);
+    border: solid 5px var(--bg-outline);
     padding: 10px;
+
+    text-align: center;
+    color: var(--text-dark);
+    font-family: var(font1);
+    font-size:14pt;
 }
-
-
 
 .box1>label {
     display: flex;
@@ -24,4 +33,29 @@
     height: 20px;
     flex: 0 0 200px;
     margin-left: 10px;
+}
+
+.signup-button {
+    background-color: var(--box-color);
+    color: var(--text-light);
+    font-family: var(--font1);
+    font-size: 16pt;
+	font-weight: bold;
+
+    margin: 25px;
+    margin-left:5px;
+    padding-left:15px;
+    padding-right:15px;
+	margin-bottom: 8px;
+
+    border: solid 5px var(--box-outline);
+
+}
+
+.imagedisplay {
+    width:256px;
+    height:256px;
+    border-radius:128px;
+    object-fit:cover;
+    overflow:hidden;
 }
