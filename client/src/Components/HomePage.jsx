@@ -13,10 +13,19 @@ const HomePage = () => {
     if (rooms.length >= 3)
       return;
 
+    console.log(rooms);
+
     let name = document.getElementById('addRoomBtn').value;
-    changeRooms(rooms => [...rooms, name]);
-    changeRoomCount(roomCount + 1);
-    changeOpenRooms(openRooms - 1);
+    if (name.length > 0) {
+      document.getElementById("home-error").innerHTML = '';
+      changeRooms(rooms => [...rooms, name]);
+      changeRoomCount(roomCount + 1);
+      changeOpenRooms(openRooms - 1);
+    }
+    else {
+    document.getElementById("home-error").innerHTML = 'room name can not be blank';
+      return;
+    }
   }
 
   return (
@@ -41,6 +50,7 @@ const HomePage = () => {
           <button className = "home-btn" onClick={addRoom}>
             Add
           </button>
+          <p id="home-error"></p>
           <div>
             Room Count: {roomCount}
           </div>
