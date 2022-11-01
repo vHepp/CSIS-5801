@@ -7,7 +7,7 @@
     margin-top: 0em;
 
     text-align:center;
-    border: solid 5px var(--bg-outline);
+    border: solid var(--stroke) var(--bg-outline);
     padding: 10px;
 }
 
@@ -44,7 +44,7 @@ label {
     padding-right:15px;
 	margin-bottom: 8px;
 
-    border: solid 5px var(--box-outline);
+    border: solid var(--stroke) var(--box-outline);
 }
 
 input {

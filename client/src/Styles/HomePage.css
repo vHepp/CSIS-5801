@@ -1,11 +1,16 @@
 .button {
-    background-color: var(--box-color);
-    color: var(--text-light);
     font-family: var(--font1);
     font-weight: bold;
     font-size: 18pt;
+    color: var(--text-light);
+
+    background-color: var(--box-color);
+    border: solid var(--stroke) var(--box-outline);
     padding:10px;
-    border: solid 5px var(--box-outline);
+}
+
+.button:hover {
+    color: var(--text-hover);
 }
 
 .home-intro {
@@ -15,24 +20,28 @@
 .home-main {
     font-family: var(--font2);
     text-align: center;
+    font-size: 36px;
+    color: var(--text-light);
+    text-shadow: 3px 3px 5px #000000;
+    
     border: solid 0px var(--bg2-outline);
     background-color: var(--bg2-color);
+    
     padding-top: 10px;
     padding-bottom:10px;
-    font-size: 20px;
-    color: var(--text-light);
-    
 }
 
 .home-OpenedRooms {
     float: none;
     font-size: 30px;
     padding-top: 3%;
+    text-shadow: 2px 1px 4px #00000045;
 }
 
 .home-input {
     background-color: var(--box-color);
-    border: 5px solid var(--box-outline);
+    border: solid var(--stroke) var(--box-outline);
+
     font-family: var(--font1);
     text-align: center;
     font-size: 18pt;

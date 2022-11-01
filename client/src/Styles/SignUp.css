@@ -11,7 +11,7 @@
     background-color: var(--bg-color);
     display: block;
     margin: auto;
-    border: solid 5px var(--bg-outline);
+    border: solid var(--stroke) var(--bg-outline);
     padding: 10px;
 
     text-align: center;
@@ -48,7 +48,7 @@
     padding-right:15px;
 	margin-bottom: 8px;
 
-    border: solid 5px var(--box-outline);
+    border: solid var(--stroke) var(--box-outline);
 
 }
 

@@ -7,7 +7,7 @@
 	flex-flow: row wrap;
 
 	background-color: var(--bg-color);
-	border-bottom: 5px solid var(--bg-outline);
+	border-bottom: solid var(--stroke) var(--bg-outline);
 }
 
 .navbar-item {
@@ -19,4 +19,9 @@
 	color: var(--text-dark);
 	text-decoration: none;
 	font-weight: bold;
+	text-shadow: 1px 2px 4px #00000045;
+}
+
+.navbar-item:hover {
+	color: var(--text-hover);
 }

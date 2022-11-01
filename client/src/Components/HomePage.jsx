@@ -49,7 +49,9 @@ const HomePage = () => {
         </div>
         <div>
           <div className='home-OpenedRooms'>
-            Opened Rooms:
+            <div className='home-main'>
+              Opened Rooms:
+            </div>
             <RoomContext.Provider value={{ rooms, changeRooms }}>
               <Room name={rooms[0]} number={1} />
               <Room name={rooms[1]} number={2} />

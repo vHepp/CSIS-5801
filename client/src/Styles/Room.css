@@ -1,7 +1,7 @@
 .room-room {
 	margin: 10px;
 	font-size: 40px;
-	border: solid 5px var(--bg-outline);
+	border: solid var(--stroke) var(--bg-outline);
 	border-radius: 15px;
 	background-color: var(--bg-color);
 	color: var(--text-dark);
@@ -30,5 +30,9 @@
     padding:px;
 	margin-bottom: 8px;
 
-    border: solid 5px var(--box-outline);
+    border: solid var(--stroke) var(--box-outline);
+}
+
+.clear-button:hover {
+	color: var(--text-hover);
 }
