@@ -13,10 +13,19 @@ const HomePage = () => {
     if (rooms.length >= 3)
       return;
 
+    console.log(rooms);
+
     let name = document.getElementById('addRoomBtn').value;
-    changeRooms(rooms => [...rooms, name]);
-    changeRoomCount(roomCount + 1);
-    changeOpenRooms(openRooms - 1);
+    if (name.length > 0) {
+      document.getElementById("home-error").innerHTML = '';
+      changeRooms(rooms => [...rooms, name]);
+      changeRoomCount(roomCount + 1);
+      changeOpenRooms(openRooms - 1);
+    }
+    else {
+    document.getElementById("home-error").innerHTML = 'room name can not be blank';
+      return;
+    }
   }
 
   return (
@@ -38,9 +47,10 @@ const HomePage = () => {
         <div>
           <input id="addRoomBtn" placeholder="room name" className='home-input'>
           </input>
-          <button onClick={addRoom}>
+          <button className = "home-btn" onClick={addRoom}>
             Add
           </button>
+          <p id="home-error"></p>
           <div>
             Room Count: {roomCount}
           </div>
@@ -51,10 +61,14 @@ const HomePage = () => {
         <div>
           <div className='home-OpenedRooms'>
             Opened Rooms:
-            <RoomContext.Provider value={{ rooms, changeRooms }}>
-              <Room name={rooms[0]} number={1} />
-              <Room name={rooms[1]} number={2} />
-              <Room name={rooms[2]} number={3} />
+            <RoomContext.Provider value={{ 
+              rooms, changeRooms, 
+              roomCount, changeRoomCount, 
+              openRooms, changeOpenRooms 
+              }}>
+              {rooms[0] && <Room name={rooms[0]} number={1} />}
+              {rooms[1] && <Room name={rooms[1]} number={2} />}
+              {rooms[2] && <Room name={rooms[2]} number={3} />}
             </RoomContext.Provider>
           </div>
         </div>

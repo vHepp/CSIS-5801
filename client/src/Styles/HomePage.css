@@ -3,8 +3,7 @@
     font-size: 60px;
     border: solid 2px;
     border: radius 20px;
-    background-color: grey;
-
+    background-color: rgb(61, 219, 246);
 }
 
 .home-intro {
@@ -26,7 +25,24 @@
 }
 
 .home-input {
+    padding: 7px 40px;
+    font-size: medium;
     border: 2px solid black;
     border-radius: 4px;
     text-align: center;
+    background-color:azure;
+}
+
+.home-btn {
+    transition-duration: 0.2s;
+    cursor: pointer;
+    margin-left: 5px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.home-btn:hover {
+    color:cyan
 }
