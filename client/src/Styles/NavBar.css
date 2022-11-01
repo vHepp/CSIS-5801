@@ -1,19 +1,23 @@
 .navbar {
-	margin: 5px;
+	margin-bottom: -41px;
 	padding: 10px;
 	text-align: center;
 	justify-content: center;
 
 	display: flex;
 	flex-flow: row wrap;
-	background-color: rgb(95, 241, 217);
 
-	border: 1px solid black;
-	border-radius: 7px;
+	background-color: var(--bg-color);
+	border-bottom: 5px solid var(--bg-outline);
 }
 
 .navbar-item {
-	font-size: 25px;
+	font-size: 28px;
 	margin-left: 3%;
 	margin-right: 3%;
+
+	font-family: var(--font2);
+	color: var(--text-dark);
+	text-decoration: none;
+	font-weight: bold;
 }

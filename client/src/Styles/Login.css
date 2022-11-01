@@ -1,12 +1,11 @@
 .login-box {
     width: 40%;
     height: 25em;
-    background-color: #eee;
+    background-color: var(--bg-color);
     display: block;
     margin: auto;
     margin-top: 3em;
-    border: 2px solid black;
-    box-shadow: -4px 5px 7px 3px;
+    border: var(--border-style);
     padding: 10px;
 }
 

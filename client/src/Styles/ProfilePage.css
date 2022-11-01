@@ -4,8 +4,8 @@
 
     padding: 10px;
 
-    border: solid 3px black;
-    background-color: rgba(116, 225, 233, 0.898);
+    border: solid 2px black;
+    background-color: var(--bg-color2);
     border-radius: 10px;
     margin: 10px;
 

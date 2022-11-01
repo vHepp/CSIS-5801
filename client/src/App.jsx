@@ -10,6 +10,7 @@ import HomePage from './Components/HomePage';
 import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import ProfilePage from './Components/ProfilePage';
+import PageHeader from './Components/PageHeader';
 
 //Reducers
 import { reducer, initialState } from './reducers/userReducer';
@@ -27,6 +28,7 @@ const App = () => {
   return (
     <BrowserRouter>
       <userContext.Provider value={value}>
+        <PageHeader />
         <NavBar />
         <Routes>
           <Route path='/' element={<HomePage />} />

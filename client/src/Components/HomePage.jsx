@@ -26,21 +26,23 @@ const HomePage = () => {
       </h1>
       <div className='home-intro'>
         <p>
-          Welcome to KeithBoard
+          Welcome to KeithBoard!
         </p>
         <p>
           We are an interractive virtual classroom designed for
           group communication.
         </p>
         <p>
-          Use the box below to name on open room, you have three rooms total
+          Use the box below to name on open room. There is a limit of 3 rooms.
         </p>
         <div>
-          <input id="addRoomBtn" placeholder="room name" className='home-input'>
+          <input id="addRoomBtn" placeholder="Room Name" className='home-input'>
           </input>
-          <button onClick={addRoom}>
-            Add
-          </button>
+          <p>
+            <button class="button" onClick={addRoom}>
+              Add Room
+            </button>
+          </p>
           <div>
             Room Count: {roomCount}
           </div>
