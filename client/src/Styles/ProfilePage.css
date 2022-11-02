@@ -2,16 +2,14 @@
     text-align: center;
     padding: 10px;
     background-color: var(--bg2-color);
-    height:38em;
+    height: 38em;
 }
-
-.user-image-container {}
 
 .user-image {
     height: 256px;
     width: 256px;
-    object-fit:cover;
-    overflow:hidden;
+    object-fit: cover;
+    overflow: hidden;
     border-radius: 128px;
 }
 
@@ -21,7 +19,7 @@
     font-family: var(--font2);
     color: var(--text-light);
     text-shadow: 3px 3px 5px #000000;
-    
+
     margin: 10px;
     padding: 10px;
     font-size: 24px;
