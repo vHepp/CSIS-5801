@@ -11,10 +11,8 @@
 
 }
 
-.user-image-container {}
-
 .user-image {
-    width: "150px";
+    width: 150px;
 }
 
 .user-data {
