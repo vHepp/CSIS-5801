@@ -1,7 +1,7 @@
 import React from 'react'
 import '../Styles/InviteTest.css'
 
-const InviteTest = () => {
+const InviteTest = ({ name }) => {
 
 	const handleClick = () => {
 		console.log("On Click")
@@ -14,7 +14,12 @@ const InviteTest = () => {
 	return (
 		<div className='invitetest-main'>
 			<div className='box'>
-				<div className='label'>InviteTest</div>
+
+				{name.length > 0 ?
+					<div className='label'>Invite to {name}'s room</div>
+					:
+					<div className='label'>Invite</div>
+				}
 
 				<button className='button' onClick={() => handleClick()}>Join room</button>
 

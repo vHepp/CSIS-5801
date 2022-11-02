@@ -10,21 +10,32 @@ const HomePage = () => {
   const [openRooms, changeOpenRooms] = useState(3);
   const [rooms, changeRooms] = useState([]);
 
-  function addRoom() {
-    if (rooms.length >= 3)
-      return;
+  const [homeError, setHomeError] = useState([]);
 
-    console.log(rooms);
+  function addRoom() {
+    if (rooms.length >= 3) {
+
+      setHomeError('Maximum number of rooms reached.');
+      return;
+    }
+
+    console.table(rooms);
 
     let name = document.getElementById('addRoomBtn').value;
-    if (name.length > 0) {
-      document.getElementById("home-error").innerHTML = '';
+    if (name.length > 0 && !rooms.includes(name)) {
+      setHomeError();
       changeRooms(rooms => [...rooms, name]);
       changeRoomCount(roomCount + 1);
       changeOpenRooms(openRooms - 1);
     }
     else {
-      document.getElementById("home-error").innerHTML = 'room name can not be blank';
+      if (name.length <= 0) {
+
+        setHomeError('Room name cannot be blank.');
+      }
+      else {
+        setHomeError('That room name is already used.');
+      }
       return;
     }
   }
@@ -46,10 +57,11 @@ const HomePage = () => {
           <input id="addRoomBtn" placeholder="Room Name" className='home-input'>
           </input>
           <p>
-            <button class="button" onClick={addRoom}>
+            <button className="button" onClick={addRoom}>
               Add Room
             </button>
           </p>
+          <p id="home-error">{homeError}</p>
           <div>
             Room Count: {roomCount}
           </div>
@@ -59,17 +71,15 @@ const HomePage = () => {
         </div>
         <div>
           <div className='home-OpenedRooms'>
-            <div className='home-main'>
-              Opened Rooms:
-            </div>
+            Opened Rooms:
             <RoomContext.Provider value={{
               rooms, changeRooms,
               roomCount, changeRoomCount,
               openRooms, changeOpenRooms
             }}>
-              {rooms[0] && <Room name={rooms[0]} number={1} LinkToWebex={<InviteTest />} />}
-              {rooms[1] && <Room name={rooms[1]} number={2} LinkToWebex={<InviteTest />} />}
-              {rooms[2] && <Room name={rooms[2]} number={3} LinkToWebex={<InviteTest />} />}
+              {rooms[0] && <Room name={rooms[0]} number={1} LinkToWebex={<InviteTest name={rooms[0]} />} />}
+              {rooms[1] && <Room name={rooms[1]} number={2} LinkToWebex={<InviteTest name={rooms[1]} />} />}
+              {rooms[2] && <Room name={rooms[2]} number={3} LinkToWebex={<InviteTest name={rooms[2]} />} />}
             </RoomContext.Provider>
           </div>
         </div>
