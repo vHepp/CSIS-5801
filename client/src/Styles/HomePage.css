@@ -1,9 +1,16 @@
-.home-title {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    font-size: 60px;
-    border: solid 2px;
-    border: radius 20px;
-    background-color: rgb(61, 219, 246);
+.button {
+    font-family: var(--font1);
+    font-weight: bold;
+    font-size: 18pt;
+    color: var(--text-light);
+
+    background-color: var(--box-color);
+    border: solid var(--stroke) var(--box-outline);
+    padding: 10px;
+}
+
+.button:hover {
+    color: var(--text-hover);
 }
 
 .home-intro {
@@ -11,38 +18,37 @@
 }
 
 .home-main {
+    font-family: var(--font2);
     text-align: center;
-    border: solid 3px black;
-    border-radius: 15px;
-    font-size: 20px;
-    padding-bottom: 1%;
+    font-size: 36px;
+    color: var(--text-light);
+    text-shadow: 3px 3px 5px #000000;
+
+    border: solid 0px var(--bg2-outline);
+    background-color: var(--bg2-color);
+
+    padding-top: 10px;
+    padding-bottom: 10px;
 }
 
 .home-OpenedRooms {
     float: none;
     font-size: 30px;
     padding-top: 3%;
+    text-shadow: 2px 1px 4px #00000045;
 }
 
 .home-input {
-    padding: 7px 40px;
-    font-size: medium;
-    border: 2px solid black;
-    border-radius: 4px;
-    text-align: center;
-    background-color:azure;
-}
+    background-color: var(--box-color);
+    border: solid var(--stroke) var(--box-outline);
 
-.home-btn {
-    transition-duration: 0.2s;
-    cursor: pointer;
-    margin-left: 5px;
-    border: 2px solid black;
-    padding: 10px 20px;
-    border-radius: 4px;
+    font-family: var(--font1);
     text-align: center;
+    font-size: 18pt;
+    padding: 10px;
+    color: var(--text-light);
 }
 
 .home-btn:hover {
-    color:cyan
+    color: cyan
 }

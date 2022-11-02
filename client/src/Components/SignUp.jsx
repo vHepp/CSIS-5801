@@ -56,63 +56,66 @@ export default function SignUp() {
 
     return (
         <>
-            <div className="box1">
-                <p><strong>Profile Picture</strong></p>
+            <div className='signup-main'>
+                <div className="box1">
+                    <p><strong>Profile Picture</strong></p>
 
-                <img alt="" width={"125px"} src={image ? URL.createObjectURL(image) : 'alt'} />
-                <input
-                    type="file"
-                    title="j"
-                    name="myImage"
-                    onChange={(event) => onSelectFile(event)}
-                />
+                    <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+                    <br></br>
+                    <input
+                        type="file"
+                        title="j"
+                        name="myImage"
+                        onChange={(event) => onSelectFile(event)}
+                    />
 
-                <div className="usr">
-                    <label >Register Email:
-                        <input type="text"
-                            required
-                            className="username"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}></input>
-                    </label>
+                    <div className="usr">
+                        <label >Register Email:
+                            <input type="text"
+                                required
+                                className="username"
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}></input>
+                        </label>
+                    </div>
+                    <div className='name'>
+                        <label >Full Name:
+                            <input type="text"
+                                required
+                                className="username"
+                                value={name}
+                                onChange={(e) => setName(e.target.value)}></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className="pswlb">Create Password:
+                            <input type="text"
+                                required
+                                className="pswin"
+                                value={password}
+                                onChange={(e) => setPassword(e.target.value)}></input>
+                        </label>
+                    </div>
+                    <div>
+                        <label className="pswlb">Password Confirmation:
+                            <input type="text"
+                                required
+                                className="pswin"
+                                value={password_confirmation}
+                                onChange={(e) => setPassword_confirmation(e.target.value)}></input>
+                        </label>
+                    </div>
+                    <button className='signup-button' onClick={() => onSubmit()}>
+                        Submit
+                    </button>
                 </div>
-                <div className='name'>
-                    <label >Full Name:
-                        <input type="text"
-                            required
-                            className="username"
-                            value={name}
-                            onChange={(e) => setName(e.target.value)}></input>
-                    </label>
+                <div className='results'>
+                    <img alt="" width={"125px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+                    <h4>{email}</h4>
+                    <h4>{name}</h4>
+                    <h4>{password}</h4>
+                    <h4>{password_confirmation}</h4>
                 </div>
-                <div>
-                    <label className="pswlb">Create Password:
-                        <input type="text"
-                            required
-                            className="pswin"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}></input>
-                    </label>
-                </div>
-                <div>
-                    <label className="pswlb">Password Confirmation:
-                        <input type="text"
-                            required
-                            className="pswin"
-                            value={password_confirmation}
-                            onChange={(e) => setPassword_confirmation(e.target.value)}></input>
-                    </label>
-                </div>
-                <button className='btn' onClick={() => onSubmit()}>
-                    Submit
-                </button>
-            </div>
-            <div className='results'>
-                <img alt="" width={"125px"} src={image ? URL.createObjectURL(image) : 'alt'} />
-                <h4>{email}</h4>
-                <h4>{name}</h4>
-                <h4>{password}</h4>
-                <h4>{password_confirmation}</h4>
             </div>
         </>
     )

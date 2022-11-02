@@ -1,5 +1,26 @@
+:root{
+  --bg-color: #e2ffe2;
+  --bg-outline: #95c095;
+
+  --bg2-color: #2d5537;
+  --bg2-outline: #2d4a30;
+
+  --box-color: #2e3331;
+  --box-outline: #000000;
+
+  --text-light: white;
+  --text-dark: #304932;
+  --text-hover: #a4a4a4;
+
+  --font1: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --font2: 'Courier New', Courier, monospace;
+
+  --stroke: 4px;
+}
+
 .App {
   text-align: center;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .App-logo {

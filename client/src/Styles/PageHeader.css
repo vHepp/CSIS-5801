@@ -1,0 +1,10 @@
+.pageheader {
+    font-family: var(--font1);
+    font-size: 60px;
+    color: var(--text-light);
+    text-align: left;
+
+    border-bottom: solid var(--stroke) var(--box-outline);
+    background-color: var(--box-color);
+    padding-left:20px;
+}

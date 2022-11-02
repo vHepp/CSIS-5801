@@ -24,34 +24,32 @@ const HomePage = () => {
       changeOpenRooms(openRooms - 1);
     }
     else {
-    document.getElementById("home-error").innerHTML = 'room name can not be blank';
+      document.getElementById("home-error").innerHTML = 'room name can not be blank';
       return;
     }
   }
 
   return (
     <div className='home-main'>
-      <h1 className='home-title'>
-        KeithBoard
-      </h1>
       <div className='home-intro'>
         <p>
-          Welcome to KeithBoard
+          Welcome to KeithBoard!
         </p>
         <p>
-          We are an interractive virtual classroom designed for
+          A interactive virtual classroom designed for
           group communication.
         </p>
         <p>
-          Use the box below to name on open room, you have three rooms total
+          Use the box below to name on open room. There is a limit of 3 rooms.
         </p>
         <div>
-          <input id="addRoomBtn" placeholder="room name" className='home-input'>
+          <input id="addRoomBtn" placeholder="Room Name" className='home-input'>
           </input>
-          <button className = "home-btn" onClick={addRoom}>
-            Add
-          </button>
-          <p id="home-error"></p>
+          <p>
+            <button class="button" onClick={addRoom}>
+              Add Room
+            </button>
+          </p>
           <div>
             Room Count: {roomCount}
           </div>
@@ -61,15 +59,17 @@ const HomePage = () => {
         </div>
         <div>
           <div className='home-OpenedRooms'>
-            Opened Rooms:
-            <RoomContext.Provider value={{ 
-              rooms, changeRooms, 
-              roomCount, changeRoomCount, 
-              openRooms, changeOpenRooms 
-              }}>
-              {rooms[0] && <Room name={rooms[0]} number={1} LinkToWebex = {<InviteTest/>} />}
-              {rooms[1] && <Room name={rooms[1]} number={2} LinkToWebex = {<InviteTest/>} />}
-              {rooms[2] && <Room name={rooms[2]} number={3} LinkToWebex = {<InviteTest/>} />}
+            <div className='home-main'>
+              Opened Rooms:
+            </div>
+            <RoomContext.Provider value={{
+              rooms, changeRooms,
+              roomCount, changeRoomCount,
+              openRooms, changeOpenRooms
+            }}>
+              {rooms[0] && <Room name={rooms[0]} number={1} LinkToWebex={<InviteTest />} />}
+              {rooms[1] && <Room name={rooms[1]} number={2} LinkToWebex={<InviteTest />} />}
+              {rooms[2] && <Room name={rooms[2]} number={3} LinkToWebex={<InviteTest />} />}
             </RoomContext.Provider>
           </div>
         </div>

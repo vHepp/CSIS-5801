@@ -12,11 +12,12 @@ const InviteTest = () => {
 	}
 
 	return (
-		<div className='box'>
-			<div className='label'>InviteTest</div>
+		<div className='invitetest-main'>
+			<div className='box'>
+				<div className='label'>InviteTest</div>
 
-			<div className='button'>
-				<button onClick={() => handleClick()}>Join room</button>
+				<button className='button' onClick={() => handleClick()}>Join room</button>
+
 			</div>
 		</div>
 	)
