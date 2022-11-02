@@ -1,7 +1,23 @@
-.ProfilePage{   
-    border:solid 3px black;
-    background-color: crimson;
+.ProfilePage {
+
+    text-align: center;
+
+    padding: 10px;
+
+    border: solid 3px black;
+    background-color: rgba(116, 225, 233, 0.898);
     border-radius: 10px;
     margin: 10px;
 
+}
+
+.user-image {
+    width: 150px;
+}
+
+.user-data {
+    border: solid 3px black;
+    background-color: gray;
+    border-radius: 10px;
+    margin: 10px;
 }

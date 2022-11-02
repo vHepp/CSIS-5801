@@ -1,0 +1,48 @@
+.home-title {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 60px;
+    border: solid 2px;
+    border: radius 20px;
+    background-color: rgb(61, 219, 246);
+}
+
+.home-intro {
+    font-size: 20px;
+}
+
+.home-main {
+    text-align: center;
+    border: solid 3px black;
+    border-radius: 15px;
+    font-size: 20px;
+    padding-bottom: 1%;
+}
+
+.home-OpenedRooms {
+    float: none;
+    font-size: 30px;
+    padding-top: 3%;
+}
+
+.home-input {
+    padding: 7px 40px;
+    font-size: medium;
+    border: 2px solid black;
+    border-radius: 4px;
+    text-align: center;
+    background-color:azure;
+}
+
+.home-btn {
+    transition-duration: 0.2s;
+    cursor: pointer;
+    margin-left: 5px;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-align: center;
+}
+
+.home-btn:hover {
+    color:cyan
+}

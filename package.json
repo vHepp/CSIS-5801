@@ -23,5 +23,9 @@
   "homepage": "https://github.com/vHepp/CSIS-5801#readme",
   "devDependencies": {
     "concurrently": "^7.4.0"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^8.5.1"
   }
 }
