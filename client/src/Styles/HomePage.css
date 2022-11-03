@@ -6,6 +6,7 @@
 
     background-color: var(--box-color);
     border: solid var(--stroke) var(--box-outline);
+    border-radius: var(--radius);
     padding: 10px;
 }
 
@@ -29,6 +30,7 @@
 
     padding-top: 10px;
     padding-bottom: 10px;
+    height: 32em;
 }
 
 #home-error {
@@ -45,6 +47,7 @@
 .home-input {
     background-color: var(--box-color);
     border: solid var(--stroke) var(--box-outline);
+    border-radius: var(--radius);
 
     font-family: var(--font1);
     text-align: center;

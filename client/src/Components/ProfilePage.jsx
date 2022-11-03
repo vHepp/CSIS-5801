@@ -21,13 +21,13 @@ const ProfilePage = () => {
         <img className='user-image' alt="you" src={picture} />
       </div>
 
-      <div className="user-data">
+      <div className='user-data'>
         Email: <b>{email}</b>
         <br></br>
         Name: <b>{name}</b>
         <div>
 
-          <label for="bio">Your bio/description </label>
+          <label for="bio" className='user-data'>Your bio/description </label>
           <textarea id="bio" name="message" rows="5" cols="50" value={bio} onChange={(e) => { setBio(e.target.value) }} placeholder="A little about yourself..."></textarea>
         </div>
 

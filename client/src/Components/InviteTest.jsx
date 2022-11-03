@@ -12,18 +12,16 @@ const InviteTest = ({ name }) => {
 	}
 
 	return (
-		<div className='invitetest-main'>
-			<div className='box'>
+		<div className='box'>
 
-				{name.length > 0 ?
-					<div className='label'>Invite to {name}'s room</div>
-					:
-					<div className='label'>Invite</div>
-				}
+			{name.length > 0 ?
+				<div className='label'>Invite to {name}'s room</div>
+				:
+				<div className='label'>Invite</div>
+			}
 
-				<button className='button' onClick={() => handleClick()}>Join room</button>
+			<button className='button' onClick={() => handleClick()}>Join room</button>
 
-			</div>
 		</div>
 	)
 }

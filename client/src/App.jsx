@@ -11,6 +11,7 @@ import Login from './Components/Login';
 import SignUp from './Components/SignUp';
 import ProfilePage from './Components/ProfilePage';
 import PageHeader from './Components/PageHeader';
+import Melon from './Components/Melon';
 
 //Reducers
 import { reducer, initialState } from './reducers/userReducer';
@@ -35,7 +36,7 @@ const App = () => {
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/profile' element={<ProfilePage />} />
-          <Route path='/invite' element={<InviteTest />} />
+          <Route path='/melon' element={<Melon />} />
 
 
           {/* to be implemented  */}

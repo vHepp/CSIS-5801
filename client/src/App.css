@@ -16,6 +16,7 @@
   --font2: 'Courier New', Courier, monospace;
 
   --stroke: 4px;
+  --radius: 3px;
 }
 
 .App {

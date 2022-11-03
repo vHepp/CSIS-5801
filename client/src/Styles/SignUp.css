@@ -14,6 +14,7 @@
     border: solid var(--stroke) var(--bg-outline);
     padding: 10px;
 
+    border-radius: var(--radius);
     text-align: center;
     color: var(--text-dark);
     font-family: var(font1);
@@ -48,6 +49,7 @@
     padding-right:15px;
 	margin-bottom: 8px;
 
+    border-radius: var(--radius);
     border: solid var(--stroke) var(--box-outline);
 
 }

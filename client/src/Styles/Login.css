@@ -6,6 +6,7 @@
     margin: auto;
     margin-top: 0em;
 
+    border-radius: var(--radius);
     text-align:center;
     border: solid var(--stroke) var(--bg-outline);
     padding: 10px;
@@ -19,7 +20,8 @@ label {
     width: 400px;
     line-height: 26px;
     margin-top: 10px;
-
+    
+    border-radius: var(--radius);
     color: var(--text-dark);
     font-family: var(font1);
     font-size: 18px;
@@ -44,6 +46,7 @@ label {
     padding-right:15px;
 	margin-bottom: 8px;
 
+    border-radius: var(--radius);
     border: solid var(--stroke) var(--box-outline);
 }
 

@@ -3,6 +3,7 @@
     padding: 10px;
     background-color: var(--bg2-color);
     height: 38em;
+    color: var(--text-light);
 }
 
 .user-image {
@@ -17,8 +18,8 @@
     background-color: var(--bg2-color);
     border: solid 0px var(--bg-outline);
     font-family: var(--font2);
-    color: var(--text-light);
     text-shadow: 3px 3px 5px #000000;
+    color: var(--text-light);
 
     margin: 10px;
     padding: 10px;

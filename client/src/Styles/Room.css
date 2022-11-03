@@ -2,7 +2,8 @@
 	margin: 10px;
 	font-size: 40px;
 	border: solid var(--stroke) var(--bg-outline);
-	border-radius: 15px;
+	border-radius: var(--radius);
+	
 	background-color: var(--bg-color);
 	color: var(--text-dark);
 	font-family: var(--font1);
@@ -31,6 +32,7 @@
 	margin-bottom: 8px;
 
     border: solid var(--stroke) var(--box-outline);
+	border-radius: var(--radius);
 }
 
 .clear-button:hover {

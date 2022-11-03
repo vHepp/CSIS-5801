@@ -10,8 +10,10 @@
 	background-color: var(--bg-color);
 	display: block;
 	margin: auto;
-	border: solid var(--stroke) var(--bg-outline);
+	border: solid 0px var(--bg-outline);
+	border-radius: var(--radius);
 	padding: 10px;
+	margin-bottom: -50px;
 
 	text-align: center;
 	font-size: 18pt;
