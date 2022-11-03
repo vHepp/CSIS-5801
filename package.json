@@ -28,6 +28,6 @@
     "axios": "^1.1.3",
     "bcrypt": "^5.1.0",
     "jsonwebtoken": "^8.5.1",
-    "melonjs": "^14.1.1"
+    "react-game-engine": "^1.1.0"
   }
 }
