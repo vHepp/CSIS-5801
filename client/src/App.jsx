@@ -20,9 +20,10 @@ import { roomContext } from './contexts/roomContext'
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
-
+    
   return (
     <BrowserRouter>
+    
       <userContext.Provider value={value}>
         <NavBar />
         <Routes>
@@ -35,6 +36,7 @@ const App = () => {
           {/* <Route path='/profile' element={<Profile />} /> */}
         </Routes>
       </userContext.Provider >
+      
     </BrowserRouter>
   );
 }

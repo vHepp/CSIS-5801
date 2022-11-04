@@ -1,4 +1,5 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useEffect,  } from 'react'
+import { useNavigate } from 'react-router-dom'
 import {userContext} from '../contexts/userContext'
 import '../Styles/Login.css'
 
@@ -15,26 +16,34 @@ async function LoginUser(credentials) {
 
 const Login = () => {
     const {state, dispatch} = useContext(userContext);
+    
+    const Navigate = useNavigate();
     console.log(state)
+
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    async function onSubmit() {
+    
+    const onSubmit = async e =>  {
         const token = await LoginUser({
             email, password
         })
 
         if (token.success){
-            token.message.isLoggedIn = true;
             localStorage.setItem('jwt', token.token);
             localStorage.setItem("user", JSON.stringify(token.message))
             const user = JSON.parse(localStorage.getItem("user"))
             console.log(user)
-            dispatch({ type: "USER", payload: user})
+            dispatch({ type: "USER", payload: token.message})
+           
         }
-            return token;
+            
     }
 
+    const deleteUser = () => {
+        dispatch({ type: "CLEAR", payload: null })
+        localStorage.setItem('user', null);
+    }
     return (
         <div className='login-box'>
             <div className='username'>
@@ -56,7 +65,7 @@ const Login = () => {
                 </label>
             </div>
 
-            <button onClick={() => onSubmit()}> Login! </button>
+            <button onClick={(e) => onSubmit(e)}> Login! </button>
             <button onClick={() => {
                 return fetch('http://localhost:8000/api/login/login', {
                     method: 'GET',
@@ -65,6 +74,7 @@ const Login = () => {
                     },
                 }).then(data => console.log(`PING`))
             }}> Ping! </button>
+            <button onClick={() => deleteUser()}>Logout</button>
 
         </div>
     )
