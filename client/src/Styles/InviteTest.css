@@ -1,0 +1,37 @@
+.invitetest-main {
+	background-color: var(--bg2-color);
+    height:36em;
+    padding-top: 3em;
+}
+
+.box {
+	width: 40%;
+	height: 5em;
+	background-color: var(--bg-color);
+	display: block;
+	margin: auto;
+	border: solid var(--stroke) var(--bg-outline);
+	padding: 10px;
+
+	text-align: center;
+	font-size: 18pt;
+	font-family: var(text1);
+}
+
+label {
+	display: flex;
+	flex-direction: row;
+	justify-content: flex-end;
+	text-align: right;
+	width: 400px;
+	line-height: 26px;
+	margin: 10px;
+}
+
+
+
+input {
+	height: 20px;
+	flex: 0 0 200px;
+	margin-left: 10px;
+}

@@ -1,6 +1,6 @@
 # CSIS-5801
 
-A MERN stack web applicaiton for CSIS 5801
+A MERN stack web applicaiton for our CSIS 5801 Software Engineering course @ Youngstown State University.
 
 The expressjs server runs from server.js in the root folder.
 

@@ -8,7 +8,7 @@ const User = require('../../Models/UserModel');
 // GET
 // /api/login/login
 router.get("/login", (req, res) => {
-    console.log("In /Login get route")
+    console.log("In /api/login/login get route")
     res.send("Login get Route");
 });
 

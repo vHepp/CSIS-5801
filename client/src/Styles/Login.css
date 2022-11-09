@@ -1,12 +1,13 @@
 .login-box {
     width: 40%;
-    height: 25em;
-    background-color: #eee;
+    height: 9em;
+    background-color: var(--bg-color);
     display: block;
     margin: auto;
-    margin-top: 3em;
-    border: 2px solid black;
-    box-shadow: -4px 5px 7px 3px;
+    margin-top: 0em;
+
+    text-align:center;
+    border: solid var(--stroke) var(--bg-outline);
     padding: 10px;
 }
 
@@ -18,9 +19,33 @@ label {
     width: 400px;
     line-height: 26px;
     margin-top: 10px;
+
+    color: var(--text-dark);
+    font-family: var(font1);
+    font-size: 18px;
 }
 
+.login-main {
+    background-color: var(--bg2-color);
+    height:36em;
+    padding-top:3em;
+}
 
+.login-button {
+    background-color: var(--box-color);
+    color: var(--text-light);
+    font-family: var(--font1);
+    font-size: 16pt;
+	font-weight: bold;
+
+    margin: 25px;
+    margin-left:5px;
+    padding-left:15px;
+    padding-right:15px;
+	margin-bottom: 8px;
+
+    border: solid var(--stroke) var(--box-outline);
+}
 
 input {
     height: 20px;

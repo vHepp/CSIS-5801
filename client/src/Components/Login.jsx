@@ -1,6 +1,6 @@
-import React, { useContext, useState, useEffect,  } from 'react'
+import React, { useContext, useState, useEffect, } from 'react'
 import { useNavigate } from 'react-router-dom'
-import {userContext} from '../contexts/userContext'
+import { userContext } from '../contexts/userContext'
 import '../Styles/Login.css'
 
 async function LoginUser(credentials) {
@@ -13,31 +13,30 @@ async function LoginUser(credentials) {
     }).then(data => data.json())
 }
 
-
 const Login = () => {
-    const {state, dispatch} = useContext(userContext);
-    
+    const { state, dispatch } = useContext(userContext);
+
     const Navigate = useNavigate();
     console.log(state)
 
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    
-    const onSubmit = async e =>  {
+
+    const onSubmit = async e => {
         const token = await LoginUser({
             email, password
         })
 
-        if (token.success){
+        if (token.success) {
             localStorage.setItem('jwt', token.token);
             localStorage.setItem("user", JSON.stringify(token.message))
             const user = JSON.parse(localStorage.getItem("user"))
             console.log(user)
-            dispatch({ type: "USER", payload: token.message})
-           
+            dispatch({ type: "USER", payload: token.message })
+
         }
-            
+
     }
 
     const deleteUser = () => {
