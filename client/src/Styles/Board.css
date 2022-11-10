@@ -1,11 +1,36 @@
+.Board-wrapper {
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10px;
+
+  align-items: center;
+}
+
 .Board {
   text-align: center;
-  width:500px;
-  height:500px;
+  width: 500px;
+  height: 500px;
   display: grid;
   grid-template-columns: repeat(5, 100px);
   grid-template-rows: repeat(5, 100px);
-  background-color:black;
-  width: 500
+  background-color: black;
+  width: 500;
 }
 
+.button-top {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+
+.button-bottom {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: center;
+}
+
+button {
+  margin: 1px;
+  padding: 7px;
+}
