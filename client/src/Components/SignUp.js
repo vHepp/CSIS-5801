@@ -1,8 +1,6 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useContext, } from 'react'
 import "../Styles/SignUp.css";
 import { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
-import axios from 'axios'
 import { userContext } from '../contexts/userContext';
 
 const config = {
@@ -10,31 +8,34 @@ const config = {
 }
 
 async function signUpUser(formData) {
-    return axios.post(`/api/register/add`, formData, config)
-        .then(res => {
-            console.log(res.data)
-            return res.data
-        })
+    return fetch(`http://localhost:8000/api/register/signUp`, {
+        method: 'POST',
+        config,
+        body: formData
+    }).then(data => JSON.stringify(data))
 }
 
 
 export default function SignUp() {
     const { state, dispatch } = useContext(userContext)
-    const [image, setImage] = useState(null)
+    const [image, setImage] = useState(null);
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
     const [password_confirmation, setPassword_confirmation] = useState('')
 
-    console.log(state);
 
     const onSubmit = async e => {
         const formData = new FormData()
-        formData.append('image', image)
+        formData.append('image', image);
         formData.append('name', name)
         formData.append('password', password)
         formData.append('password_confirmation', password_confirmation)
         formData.append('email', email)
+
+        for (var key of formData.entries()) {
+            console.log(key[0] + ', ' + key[1]);
+        }
 
         const token = await signUpUser(formData)
 
@@ -51,7 +52,7 @@ export default function SignUp() {
 
     const onSelectFile = (event) => {
         setImage(event.target.files[0])
-        console.log(image)
+
     };
 
     return (
@@ -116,6 +117,34 @@ export default function SignUp() {
                     <h4>{password}</h4>
                     <h4>{password_confirmation}</h4>
                 </div>
+                <div>
+                    <label className="pswlb">Create Password:
+                        <input type="text"
+                            required
+                            className="pswin"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}></input>
+                    </label>
+                </div>
+                <div>
+                    <label className="pswlb">Password Confirmation:
+                        <input type="text"
+                            required
+                            className="pswin"
+                            value={password_confirmation}
+                            onChange={(e) => setPassword_confirmation(e.target.value)}></input>
+                    </label>
+                </div>
+                <button className='btn' onClick={(e) => onSubmit(e)}>
+                    Submit
+                </button>
+            </div>
+            <div className='results'>
+                <img alt="" width={"125px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+                <h4>{email}</h4>
+                <h4>{name}</h4>
+                <h4>{password}</h4>
+                <h4>{password_confirmation}</h4>
             </div>
         </>
     )

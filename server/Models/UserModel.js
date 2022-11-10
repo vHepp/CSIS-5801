@@ -18,14 +18,15 @@ const userSchema = new mongoose.Schema(
             required: [true, "Name is required"],
         },
         profileImage: {
-            data: Buffer,
+            type: String,
             contentType: String
         }
     }, {
-    timestamps: true
+    timestamps: true,
+    collection: "users"
 }
 );
 
 const User = mongoose.model("User", userSchema);
 
-exports.User = User;
+module.exports = User;

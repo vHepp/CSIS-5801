@@ -1,9 +1,18 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
+import { useEffect, useContext } from 'react'
+import { userContext } from '../contexts/userContext'
 import '../Styles/NavBar.css'
 
 const NavBar = () => {
+
+    const {state, dispatch} = useContext(userContext);
+    useEffect(() => {
+        if (localStorage.getItem('user')) {
+            const user = JSON.parse(localStorage.getItem('user'))
+            dispatch({ type: "USER", payload: user })
+        }
+    }, [dispatch]);
 	return (
 		<div className='navbar'>
 
