@@ -1,0 +1,11 @@
+.Tile {
+  width: 99px;
+  height: 99px;
+  background-color:green;
+}
+
+.Tile-Table {
+  width: 99px;
+  height: 99px;
+  background-color: cyan;
+}
