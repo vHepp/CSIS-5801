@@ -56,7 +56,7 @@ const ProfilePage = () => {
     return () => {
       //second
     }
-  }, [])
+  }, [state])
 
 
   const handleUpdate = () => {
