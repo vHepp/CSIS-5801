@@ -1,10 +1,10 @@
-import React, { useContext, useState, useEffect, } from 'react'
+import React, { useContext, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { userContext } from '../contexts/userContext'
 import '../Styles/Login.css'
 
 async function LoginUser(credentials) {
-    return fetch('http://localhost:8000/api/login/login', {
+    return fetch('/api/login/login', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -23,7 +23,7 @@ const Login = () => {
     const [password, setPassword] = useState('');
 
 
-    const onSubmit = async e => {
+    const onSubmit = async () => {
         const token = await LoginUser({
             email, password
         })
@@ -35,6 +35,8 @@ const Login = () => {
             console.log(user)
             dispatch({ type: "USER", payload: token.message })
 
+            //bad but effective redirect to profile page on successful login
+            window.location.assign("/profile")
         }
 
     }
@@ -64,16 +66,9 @@ const Login = () => {
                 </label>
             </div>
 
-            <button onClick={(e) => onSubmit(e)}> Login! </button>
-            <button onClick={() => {
-                return fetch('http://localhost:8000/api/login/login', {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                }).then(data => console.log(`PING`))
-            }}> Ping! </button>
-            <button onClick={() => deleteUser()}>Logout</button>
+            <button type='submit' onClick={(e) => onSubmit(e)}> Login! </button>
+            <button type='submit' onClick={() => deleteUser()}>Logout</button>
+
 
         </div>
     )

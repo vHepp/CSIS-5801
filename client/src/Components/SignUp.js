@@ -8,7 +8,7 @@ const config = {
 }
 
 async function signUpUser(formData) {
-    return fetch(`http://localhost:8000/api/register/signUp`, {
+    return fetch("/api/register/signUp", {
         method: 'POST',
         config,
         body: formData

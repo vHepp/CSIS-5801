@@ -3,22 +3,6 @@ import { useState, useContext } from 'react'
 import '../../Styles/Tile.css'
 import { BoardContext } from '../../contexts/boardContext';
 
-const InviteTest = () => {
-
-  const handleClick = () => {
-    console.log("On Click")
-    if (window.confirm('Click \'OK\' to be redirected to a Webex room')) {
-      window.open('https://ysu.webex.com/meet/vuhepola', '_blank');
-    };
-  }
-
-  return (
-    <div className='invitetest-main'>
-      <p onClick={() => handleClick()}>Join</p>
-    </div>
-  )
-}
-
 const Tile = (props) => {
 
   const handleClick = () => {
