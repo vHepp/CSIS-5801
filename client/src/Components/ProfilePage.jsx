@@ -32,6 +32,7 @@ const ProfilePage = () => {
     <textarea id="bio" name="message" rows="1" cols="50" value={bio} onChange={(e)=>{setBio(e.target.value)}} placeholder="I love pizza"></textarea></h2>
 
     <button type="update">Update</button>
+
     
     <h1>{email}</h1>
     <h1>{name}</h1>
