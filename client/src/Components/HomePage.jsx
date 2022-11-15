@@ -5,6 +5,7 @@ import Room from './Room.jsx'
 import InviteTest from './InviteTest.jsx'
 import Board from './classroom/Board.jsx'
 import { RoomContext } from "../contexts/roomContext.js";
+import ProfilePage from './ProfilePage'
 
 const HomePage = () => {
   const [roomCount, changeRoomCount] = useState(0);
@@ -21,7 +22,7 @@ const HomePage = () => {
       setHomeError('Maximum number of rooms reached.');
       return;
     }
-    
+
     let name = document.getElementById('addRoomBtn').value;
     if (name.length > 0 && !rooms.includes(name)) {
       setHomeError();
@@ -43,6 +44,10 @@ const HomePage = () => {
 
   return (
     <div className='home-main'>
+      <div className='profile-embed'>
+        <ProfilePage />
+      </div>
+
       <div className='home-intro'>
         <p>
           Welcome to KeithBoard!
