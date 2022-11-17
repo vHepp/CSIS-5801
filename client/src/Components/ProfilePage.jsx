@@ -9,8 +9,8 @@ import { userContext } from "../contexts/userContext"
 const ProfilePage = () => {
   const { state, dispatch } = useContext(userContext)
 
-  const [email, setEmail] = useState("Rob@KeithBoard.gov")
-  const [name, setName] = useState("Robbie")
+  const [email, setEmail] = useState("Robby@KeithBoard.gov")
+  const [name, setName] = useState("Robby")
   const [pictureURL, setPictureURL] = useState("4479.jpeg")
   const [picture, setPicture] = useState(Image)
   const [bio, setBio] = useState("")
