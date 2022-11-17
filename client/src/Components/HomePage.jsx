@@ -1,13 +1,18 @@
 import React from 'react'
-import { useState, useContext, useEffect } from 'react'
+import { useState, useContext, useReducer, useMemo} from 'react'
 import '../Styles/HomePage.css'
 import Room from './Room.jsx'
 import InviteTest from './InviteTest.jsx'
 import Board from './classroom/Board.jsx'
 import { roomContext } from "../contexts/roomContext.js";
 import { userContext } from "../contexts/userContext.js";
+import { RoomReducer, RoomInitialState } from '../reducers/roomReducer';
 
 const HomePage = () => {
+  // reducer
+  const [roomState, roomDispatch] = useReducer(RoomReducer, RoomInitialState);
+  const RoomValue = useMemo(() => ({ roomState, roomDispatch }), [roomState, roomDispatch]);
+
   //state variables
   const [roomCount, changeRoomCount] = useState(0);
   const [openRooms, changeOpenRooms] = useState(3);
@@ -65,7 +70,7 @@ const HomePage = () => {
       setHomeError();
       let id = getID();
       console.log(id);
-      changeRooms(rooms => [...rooms, {id: id, name: {name}, room: <Room name={name} id = {id}/>}]);
+      changeRooms(rooms => [...rooms, {id: id, name: name, /* room: <Room name={name} id = {id}/> */}]);
       changeRoomCount(roomCount + 1);
       changeOpenRooms(openRooms - 1);
     } else {
@@ -110,17 +115,22 @@ const HomePage = () => {
         <div>
           <div className='home-OpenedRooms'>
             Opened Rooms:
-            <roomContext.Provider value={{
+            <roomContext.Provider value={{{
               rooms, changeRooms,
               roomCount, changeRoomCount,
               openRooms, changeOpenRooms,
               roomOneUsers, changeRoomOneUsers,
               roomTwoUsers, changeRoomTwoUsers,
               roomThreeUsers, changeRoomThreeUsers
-            }}>
-              {rooms.map(room => {
+            }, RoomValue}}>
+              {/* {rooms.map(room => {
                 return (
                   room.room
+                );
+              })} */}
+              {rooms.map(room => {
+                return (
+                  <Room name={room.name} id = {room.id}/>
                 );
               })}
             </roomContext.Provider>

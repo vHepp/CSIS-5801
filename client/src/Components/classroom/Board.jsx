@@ -1,18 +1,20 @@
 import React from 'react'
 import Tile from './Tile.jsx'
 import '../../Styles/Board.css'
-import { useContext, } from 'react'
+import { useContext, useState } from 'react'
 import { boardContext } from '../../contexts/boardContext';
 
 const Board = (props) => {
   //context variables
   const { roomUsers, setRoomUsers } = useContext(boardContext);
-
+  
+  //state variables
+  const [roomID, setRoomID] = useState(props.roomID);
+  
   //board axis
   const horizontalAxis = [0, 1, 2, 3, 4];
   const verticalAxis = [0, 1, 2, 3, 4];
   let board = [];
-  let roomID = props.roomID;
 
   //upbtn 
   function moveUp() {
