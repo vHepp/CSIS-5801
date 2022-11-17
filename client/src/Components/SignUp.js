@@ -1,7 +1,10 @@
 import React, { useContext, } from 'react'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import "../Styles/SignUp.css";
 import { useState } from 'react';
 import { userContext } from '../contexts/userContext';
+
 
 const config = {
     headers: { 'content-type': 'multipart/form-data' }
@@ -31,15 +34,16 @@ export default function SignUp() {
         formData.append('name', name)
         formData.append('password', password)
         formData.append('password_confirmation', password_confirmation)
-        formData.append('email', email)
-
-        for (var key of formData.entries()) {
-            console.log(key[0] + ', ' + key[1]);
-        }
+        formData.append('email', email);
 
         const token = await signUpUser(formData)
-
+        console.log(token)
         if (token.success) {
+            console.log('here')
+            toast.success('Successfully Registered!', {
+                position: toast.POSITION.TOP_RIGHT,
+
+            });
             localStorage.setItem('jwt', token);
 
             localStorage.setItem("user", JSON.stringify(token.result))
@@ -47,6 +51,13 @@ export default function SignUp() {
             dispatch({ type: "USER", payload: user })
             console.log(state)
 
+        }
+
+        else{
+            toast.error("There was a problem with your registration", {
+                position: toast.POSITION.TOP_RIGHT,
+
+            });
         }
     }
 
@@ -146,6 +157,7 @@ export default function SignUp() {
                 <h4>{password}</h4>
                 <h4>{password_confirmation}</h4>
             </div>
+            <ToastContainer />
         </>
     )
 }

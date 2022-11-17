@@ -1,5 +1,6 @@
 import React, { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
 import { userContext } from '../contexts/userContext'
 import '../Styles/Login.css'
 
@@ -16,7 +17,7 @@ async function LoginUser(credentials) {
 const Login = () => {
     const { state, dispatch } = useContext(userContext);
 
-    const Navigate = useNavigate();
+    
     console.log(state)
 
     const [email, setEmail] = useState('');
@@ -29,6 +30,11 @@ const Login = () => {
         })
 
         if (token.success) {
+            toast.success('Login Successful!', {
+            position: toast.POSITION.TOP_RIGHT,
+            
+        });
+        
             localStorage.setItem('jwt', token.token);
             localStorage.setItem("user", JSON.stringify(token.message))
             const user = JSON.parse(localStorage.getItem("user"))
@@ -36,17 +42,23 @@ const Login = () => {
             dispatch({ type: "USER", payload: token.message })
 
             //bad but effective redirect to profile page on successful login
-            window.location.assign("/profile")
+
+            setTimeout(() => {window.location.assign("/profile")}, 2500)
+            
         }
-
+            else{
+                toast.error("Access Denied", {
+            position: toast.POSITION.TOP_RIGHT,
+            
+        });
+            }
     }
 
-    const deleteUser = () => {
-        dispatch({ type: "CLEAR", payload: null })
-        localStorage.setItem('user', null);
-    }
+    
+
     return (
         <div className='login-box'>
+            
             <div className='username'>
                 <label >Email:
                     <input type="text"
@@ -66,9 +78,10 @@ const Login = () => {
                 </label>
             </div>
 
-            <button type='submit' onClick={(e) => onSubmit(e)}> Login! </button>
-            <button type='submit' onClick={() => deleteUser()}>Logout</button>
-
+            <button type='submit' onClick={(e) => onSubmit()}> Login! </button>
+            
+           
+            <ToastContainer />
 
         </div>
     )

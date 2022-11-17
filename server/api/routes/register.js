@@ -89,8 +89,8 @@ router.post('/getImage', (req, res) => {
 })
 
 router.post("/signUp", upload.single('image'), (req, res, next) => {
-    console.log(req.body)
-    console.log(req.file)
+    // console.log(req.body)
+    // console.log(req.file)
     const id = req.file.id.toString()
     console.log(id)
     let { name, email, password, password_confirmation } = req.body;
@@ -120,7 +120,9 @@ router.post("/signUp", upload.single('image'), (req, res, next) => {
     }
     User.findOne({ email: email })
         .then(user => {
+            
             if (user) {
+                
                 return res.status(422).json({ errors: [{ user: "email already exists" }] });
             } else {
                 const user = new User({

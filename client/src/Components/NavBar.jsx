@@ -17,8 +17,14 @@ const NavBar = () => {
 		<div className='navbar'>
 
 			<NavLink className='navbar-item' to='/'>Home</NavLink>
-			<NavLink className='navbar-item' to='/login'>Login</NavLink>
-			<NavLink className='navbar-item' to='/register'>Register</NavLink>
+            {state ? ('') : (
+               <>
+                    <NavLink className='navbar-item' to='/login'>Login</NavLink>
+                    <NavLink className='navbar-item' to='/register'>Register</NavLink>
+                </>
+                
+            ) }
+			
 			<NavLink className='navbar-item' to='/profile'>Profile</NavLink>
 			<NavLink className='navbar-item' to='/invite'>InviteTest</NavLink>
 
