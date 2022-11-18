@@ -14,6 +14,8 @@ const url = process.env.DATABASE
 
 
 
+
+
 const db = mongoose.connect(process.env.MONGO_URI)
 
 const storage = new GridFsStorage({
@@ -122,7 +124,6 @@ router.post("/signUp", upload.single('image'), (req, res, next) => {
         .then(user => {
             
             if (user) {
-                
                 return res.status(422).json({ errors: [{ user: "email already exists" }] });
             } else {
                 const user = new User({
@@ -132,15 +133,15 @@ router.post("/signUp", upload.single('image'), (req, res, next) => {
                     profileImage: req.file.filename,
                     imageID: id
                 });
-                console.log(user)
+                
                 bcrypt.genSalt(10, function (err, salt) {
                     bcrypt.hash(password, salt, function (err, hash) {
                         if (err) throw err;
                         user.password = hash;
-
-
+                        console.log(user)
                         user.save()
                             .then(response => {
+                                
                                 res.status(200).json({
                                     success: true,
                                     result: response

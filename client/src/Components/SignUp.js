@@ -5,7 +5,6 @@ import "../Styles/SignUp.css";
 import { useState } from 'react';
 import { userContext } from '../contexts/userContext';
 
-
 const config = {
     headers: { 'content-type': 'multipart/form-data' }
 }
@@ -15,7 +14,7 @@ async function signUpUser(formData) {
         method: 'POST',
         config,
         body: formData
-    }).then(data => JSON.stringify(data))
+    }).then(data => data.json())
 }
 
 
