@@ -1,61 +1,75 @@
-import React, { useState } from 'react'
-import axios from 'axios';
+import React, { useContext, useState } from 'react'
+import { useNavigate } from 'react-router-dom'
+import { userContext } from '../contexts/userContext'
 import '../Styles/Login.css'
 
 async function LoginUser(credentials) {
-    return axios.post('/api/login/login', {
-        username: credentials.username,
-        password: credentials.password
-    }).then(response => {
-        console.log(response.data);
-    })
+    return fetch('/api/login/login', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(credentials)
+    }).then(data => data.json())
 }
 
 const Login = () => {
+    const { state, dispatch } = useContext(userContext);
 
-    const [username, setUsername] = useState('');
+    const Navigate = useNavigate();
+    console.log(state)
+
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
-    async function onSubmit() {
+
+    const onSubmit = async () => {
         const token = await LoginUser({
-            username: username,
-            password: password
+            email, password
         })
+
+        if (token.success) {
+            localStorage.setItem('jwt', token.token);
+            localStorage.setItem("user", JSON.stringify(token.message))
+            const user = JSON.parse(localStorage.getItem("user"))
+            console.log(user)
+            dispatch({ type: "USER", payload: token.message })
+
+            //bad but effective redirect to profile page on successful login
+            window.location.assign("/profile")
+        }
+
     }
 
+    const deleteUser = () => {
+        dispatch({ type: "CLEAR", payload: null })
+        localStorage.setItem('user', null);
+    }
     return (
-        <div className='login-main'>
-            <div className='login-box'>
-                <div className='username'>
-                    <label >Username:
-                        <input type="text"
-                            required
-                            className="username"
-                            value={username}
-                            onChange={(e) => setUsername(e.target.value)}></input>
-                    </label>
-                </div>
-                <div className='password'>
-                    <label >Password:
-                        <input type="text"
-                            required
-                            className="username"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}></input>
-                    </label>
-                </div>
-
-                <button className='login-button' onClick={() => onSubmit()}> Login! </button>
-                <button className='login-button' onClick={() => {
-                    return fetch('/api/login/login', {
-                        method: 'GET',
-                        headers: {
-                            'Content-Type': 'application/json'
-                        },
-                    }).then(data => console.log(`PING`))
-                }}> Ping! </button>
-
+        <div className='login-box'>
+            <div className='username'>
+                <label >Email:
+                    <input type="text"
+                        required
+                        className="username"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}></input>
+                </label>
             </div>
+            <div className='password'>
+                <label >Password:
+                    <input type="text"
+                        required
+                        className="username"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}></input>
+                </label>
+            </div>
+
+            <button type='submit' onClick={(e) => onSubmit(e)}> Login! </button>
+            <button type='submit' onClick={() => deleteUser()}>Logout</button>
+
+
         </div>
     )
 }

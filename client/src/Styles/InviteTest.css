@@ -1,12 +1,12 @@
 .invitetest-main {
 	background-color: var(--bg2-color);
-    height:36em;
-    padding-top: 3em;
+    height:6em;
+    padding-top: 1em;
 }
 
 .box {
-	width: 40%;
-	height: 5em;
+	width: 30%;
+	height: 4em;
 	background-color: var(--bg-color);
 	display: block;
 	margin: auto;

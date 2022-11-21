@@ -1,16 +1,19 @@
-import React from "react";
-import { useState } from "react";
-import "../Styles/HomePage.css";
-import Room from "./Room.jsx";
-import InviteTest from "./InviteTest.jsx";
+import React from 'react'
+import { useState } from 'react'
+import '../Styles/HomePage.css'
+import Room from './Room.jsx'
+import InviteTest from './InviteTest.jsx'
+import Board from './classroom/Board.jsx'
 import { RoomContext } from "../contexts/roomContext.js";
 
 const HomePage = () => {
   const [roomCount, changeRoomCount] = useState(0);
   const [openRooms, changeOpenRooms] = useState(3);
   const [rooms, changeRooms] = useState([]);
-
   const [homeError, setHomeError] = useState([]);
+  const [roomOneUsers, changeRoomOneUsers] = useState([]);
+  const [roomTwoUsers, changeRoomTwoUsers] = useState([]);
+  const [roomThreeUsers, changeRoomThreeUsers] = useState([]);
 
   function addRoom() {
     if (rooms.length >= 3) {
@@ -18,9 +21,7 @@ const HomePage = () => {
       return;
     }
 
-    console.table(rooms);
-
-    let name = document.getElementById("addRoomBtn").value;
+    let name = document.getElementById('addRoomBtn').value;
     if (name.length > 0 && !rooms.includes(name)) {
       setHomeError();
       changeRooms((rooms) => [...rooms, name]);
@@ -62,37 +63,17 @@ const HomePage = () => {
         <div>
           <div className="home-OpenedRooms">
             Opened Rooms:
-            <RoomContext.Provider
-              value={{
-                rooms,
-                changeRooms,
-                roomCount,
-                changeRoomCount,
-                openRooms,
-                changeOpenRooms,
-              }}
-            >
-              {rooms[0] && (
-                <Room
-                  name={rooms[0]}
-                  number={1}
-                  LinkToWebex={<InviteTest name={rooms[0]} />}
-                />
-              )}
-              {rooms[1] && (
-                <Room
-                  name={rooms[1]}
-                  number={2}
-                  LinkToWebex={<InviteTest name={rooms[1]} />}
-                />
-              )}
-              {rooms[2] && (
-                <Room
-                  name={rooms[2]}
-                  number={3}
-                  LinkToWebex={<InviteTest name={rooms[2]} />}
-                />
-              )}
+            <RoomContext.Provider value={{
+              rooms, changeRooms,
+              roomCount, changeRoomCount,
+              openRooms, changeOpenRooms,
+              roomOneUsers, changeRoomOneUsers,
+              roomTwoUsers, changeRoomTwoUsers,
+              roomThreeUsers, changeRoomThreeUsers
+            }}>
+              {rooms[0] && <Room name={rooms[0]} number={1} /*LinkToWebex={<InviteTest name={rooms[0]} />}*/ />}
+              {rooms[1] && <Room name={rooms[1]} number={2} /*LinkToWebex={<InviteTest name={rooms[1]} />}*/ />}
+              {rooms[2] && <Room name={rooms[2]} number={3} /*LinkToWebex={<InviteTest name={rooms[2]} />}*/ />}
             </RoomContext.Provider>
           </div>
         </div>

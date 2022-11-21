@@ -24,9 +24,10 @@ import InviteTest from './Components/InviteTest';
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
-
+    
   return (
     <BrowserRouter>
+    
       <userContext.Provider value={value}>
         <PageHeader />
         <NavBar />
@@ -42,6 +43,7 @@ const App = () => {
           {/* <Route path='/profile' element={<Profile />} /> */}
         </Routes>
       </userContext.Provider >
+      
     </BrowserRouter>
   );
 }
