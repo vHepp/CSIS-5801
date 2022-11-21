@@ -17,61 +17,51 @@ const HomePage = () => {
 
   function addRoom() {
     if (rooms.length >= 3) {
-
-      setHomeError('Maximum number of rooms reached.');
+      setHomeError("Maximum number of rooms reached.");
       return;
     }
 
     let name = document.getElementById('addRoomBtn').value;
     if (name.length > 0 && !rooms.includes(name)) {
       setHomeError();
-      changeRooms(rooms => [...rooms, name]);
+      changeRooms((rooms) => [...rooms, name]);
       changeRoomCount(roomCount + 1);
       changeOpenRooms(openRooms - 1);
-    }
-    else {
+    } else {
       if (name.length <= 0) {
-
-        setHomeError('Room name cannot be blank.');
-      }
-      else {
-        setHomeError('That room name is already used.');
+        setHomeError("Room name cannot be blank.");
+      } else {
+        setHomeError("That room name is already used.");
       }
       return;
     }
   }
 
   return (
-    <div className='home-main'>
-      <div className='home-intro'>
-        <p>
-          Welcome to KeithBoard!
-        </p>
-        <p>
-          A interactive virtual classroom designed for
-          group communication.
-        </p>
+    <div className="home-main">
+      <div className="home-intro">
+        <p>Welcome to KeithBoard!</p>
+        <p>A interactive virtual classroom designed for group communication.</p>
         <p>
           Use the box below to name on open room. There is a limit of 3 rooms.
         </p>
         <div>
-          <input id="addRoomBtn" placeholder="Room Name" className='home-input'>
-          </input>
+          <input
+            id="addRoomBtn"
+            placeholder="Room Name"
+            className="home-input"
+          ></input>
           <p>
             <button className="button" onClick={addRoom}>
               Add Room
             </button>
           </p>
           <p id="home-error">{homeError}</p>
-          <div>
-            Room Count: {roomCount}
-          </div>
-          <div>
-            Open Rooms: {openRooms}
-          </div>
+          <div>Room Count: {roomCount}</div>
+          <div>Open Rooms: {openRooms}</div>
         </div>
         <div>
-          <div className='home-OpenedRooms'>
+          <div className="home-OpenedRooms">
             Opened Rooms:
             <RoomContext.Provider value={{
               rooms, changeRooms,
@@ -89,7 +79,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
