@@ -21,7 +21,7 @@ const HomePage = () => {
       setHomeError('Maximum number of rooms reached.');
       return;
     }
-    
+
     let name = document.getElementById('addRoomBtn').value;
     if (name.length > 0 && !rooms.includes(name)) {
       setHomeError();
