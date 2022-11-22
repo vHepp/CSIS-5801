@@ -1,15 +1,38 @@
 .room-room {
 	margin: 10px;
 	font-size: 40px;
-	border: solid 3px black;
+	border: solid var(--stroke) var(--bg-outline);
 	border-radius: 15px;
-	background-color: rgba(116, 225, 233, 0.898);
+	background-color: var(--bg-color);
+	color: var(--text-dark);
+	font-family: var(--font1);
 }
 
 .room-number {
-    font-size:20px;
+    font-size:24px;
+	color: var(--text-dark);
+	font-family: var(--font1);
 }
 
 .room-link {
-    font-size:20px;
+    font-size:24px;
+	color: var(--text-dark);
+	font-family: var(--font1);
+}
+
+.clear-button {
+    background-color: var(--box-color);
+    color: var(--text-light);
+    font-family: var(--font1);
+    font-size: 16pt;
+	font-weight: bold;
+
+    padding:px;
+	margin-bottom: 8px;
+
+    border: solid var(--stroke) var(--box-outline);
+}
+
+.clear-button:hover {
+	color: var(--text-hover);
 }

@@ -8,15 +8,12 @@ const InviteTest = () => {
 		if (window.confirm('Click \'OK\' to be redirected to a Webex room')) {
 			window.open('https://ysu.webex.com/meet/vuhepola', '_blank');
 		};
-
 	}
 
 	return (
-		<div className='box'>
-			<div className='label'>InviteTest</div>
-
-			<div className='button'>
-				<button onClick={() => handleClick()}>Join room</button>
+		<div className='invitetest-main'>
+			<div className='box'>
+				<button className='button' onClick={() => handleClick()}>Join</button>
 			</div>
 		</div>
 	)
