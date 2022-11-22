@@ -97,8 +97,11 @@ const HomePage = () => {
           Use the box below to name an open room. There is a limit of 3 rooms.
         </p>
         <div>
-          <input id="addRoomBtn" placeholder="Room Name" className='home-input'>
-          </input>
+          <input
+            id="addRoomBtn"
+            placeholder="Room Name"
+            className="home-input"
+          ></input>
           <p>
             <button className="button" onClick={() => addRoom()}>
               Add Room
@@ -113,7 +116,7 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <div className='home-OpenedRooms'>
+          <div className="home-OpenedRooms">
             Opened Rooms:
             <roomContext.Provider value={{
               rooms, changeRooms,
@@ -138,7 +141,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
