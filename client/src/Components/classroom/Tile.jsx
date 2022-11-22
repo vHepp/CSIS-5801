@@ -1,35 +1,38 @@
 import React from 'react'
 import { useState, useContext } from 'react'
 import '../../Styles/Tile.css'
-import { BoardContext } from '../../contexts/boardContext';
+import { boardContext } from '../../contexts/boardContext';
 
 const Tile = (props) => {
+  // context variables
+  const { roomUsers, setRoomUsers } = useContext(boardContext);
 
-  const handleClick = () => {
-    console.log("On Click")
+  // user index
+  let i = props.i;
+  let j = props.j;
+  let occupied = false;
+
+  //onlick function to create webex room
+  const onClick = () => {
     if (window.confirm('Click \'OK\' to be redirected to a Webex room')) {
       window.open('https://ysu.webex.com/meet/vuhepola', '_blank');
     };
   }
 
-
-  const { roomUsers, setRoomUsers } = useContext(BoardContext);
-  let i = props.i;
-  let j = props.j;
-  let occupied = false;
+  // if there is a user on this tile occumpied = true
   if (roomUsers.i === i && roomUsers.j === j) {
     occupied = true;
   }
-  let link = '';
-  let isTable = props.isTable;
-  if (isTable === 'true') {
+
+  // if it is a table, render a join btn
+  if (props.isTable === 'true') {
     if (occupied) {
       return (
 
         <div>
           <div className='Tile-Table' style={{ display: "flex", flexFlow: "column nowrap" }}>
             {roomUsers.name}
-            <button style={{ fontSize: "20px" }} onClick={() => handleClick()}>Join</button>
+            <button style={{ fontSize: "20px" }} onClick={() => onClick()}>Join</button>
           </div>
         </div>
 
@@ -42,7 +45,6 @@ const Tile = (props) => {
       return (<div className='Tile' >
         <div >
           {roomUsers.name}
-
         </div>
       </div>)
     } else {

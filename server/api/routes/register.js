@@ -14,6 +14,8 @@ const url = process.env.DATABASE
 
 
 
+
+
 const db = mongoose.connect(process.env.MONGO_URI)
 
 const storage = new GridFsStorage({
@@ -89,8 +91,8 @@ router.post('/getImage', (req, res) => {
 })
 
 router.post("/signUp", upload.single('image'), (req, res, next) => {
-    console.log(req.body)
-    console.log(req.file)
+    // console.log(req.body)
+    // console.log(req.file)
     const id = req.file.id.toString()
     console.log(id)
     let { name, email, password, password_confirmation } = req.body;
@@ -120,6 +122,7 @@ router.post("/signUp", upload.single('image'), (req, res, next) => {
     }
     User.findOne({ email: email })
         .then(user => {
+            
             if (user) {
                 return res.status(422).json({ errors: [{ user: "email already exists" }] });
             } else {
@@ -130,15 +133,15 @@ router.post("/signUp", upload.single('image'), (req, res, next) => {
                     profileImage: req.file.filename,
                     imageID: id
                 });
-                console.log(user)
+                
                 bcrypt.genSalt(10, function (err, salt) {
                     bcrypt.hash(password, salt, function (err, hash) {
                         if (err) throw err;
                         user.password = hash;
-
-
+                        console.log(user)
                         user.save()
                             .then(response => {
+                                
                                 res.status(200).json({
                                     success: true,
                                     result: response

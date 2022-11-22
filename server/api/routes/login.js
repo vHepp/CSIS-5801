@@ -32,7 +32,7 @@ router.post('/login', (req, res) => {
         errors.push({ passowrd: "required" });
     }
     if (errors.length > 0) {
-        return res.status(422).json({ erros: errors });
+        return res.status(422).json({ errors: errors });
     }
     User.findOne({ email: email }).then(user => {
         if (!user) {
@@ -69,11 +69,11 @@ router.post('/login', (req, res) => {
                     }
                 });
             }).catch(err => {
-                res.status(500).json({ errrs: err });
+                res.status(500).json({ errors: err });
             });
         }
     }).catch(err => {
-        res.status(500).json({ erros: err });
+        res.status(500).json({ errors: err });
     });
 })
 
