@@ -30,31 +30,22 @@ const App = () => {
   </footer>;
 
   return (
-    <footer>
-      <BrowserRouter>
-        <userContext.Provider value={value}>
-          <PageHeader />
-          <NavBar />
-          <Routes>
-            <Route path="/" element={<HomePage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<SignUp />} />
-            <Route path="/profile" element={<ProfilePage />} />
-            <Route path="/invite" element={<InviteTest />} />
+    <BrowserRouter>
+      <userContext.Provider value={value}>
+        <PageHeader />
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/register" element={<SignUp />} />
+          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/invite" element={<InviteTest />} />
 
-            {/* to be implemented  */}
-            {/* <Route path='/profile' element={<Profile />} /> */}
-
-            <p> Creation credit goes to our team here at KeithBoard. </p>
-            <p> This project is in honor of Kevin Snobnosky.</p>
-            <p>
-              Our MIT License:
-              {"https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt"}
-            </p>
-          </Routes>
-        </userContext.Provider>
-      </BrowserRouter>
-    </footer>
+          {/* to be implemented  */}
+          {/* <Route path='/profile' element={<Profile />} /> */}
+        </Routes>
+      </userContext.Provider>
+    </BrowserRouter>
   );
 };
 
