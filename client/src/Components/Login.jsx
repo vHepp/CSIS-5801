@@ -70,7 +70,8 @@ const Login = () => {
             </div>
             <div className='password'>
                 <label >Password:
-                    <input type="text"
+                    <input type="password"
+                        name = "password"
                         required
                         className="username"
                         value={password}

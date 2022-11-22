@@ -66,6 +66,7 @@ const ProfilePage = () => {
   const deleteUser = () => {
         dispatch({ type: "CLEAR", payload: null })
         localStorage.setItem('user', null);
+        window.location.assign("/login")
     }
 
 

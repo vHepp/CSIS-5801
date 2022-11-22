@@ -49,6 +49,7 @@ export default function SignUp() {
             const user = JSON.parse(localStorage.getItem("user"))
             dispatch({ type: "USER", payload: user })
             console.log(state)
+            setTimeout(() => { window.location.assign("/profile") }, 2500)
 
         }
 
@@ -100,7 +101,8 @@ export default function SignUp() {
                     </div>
                     <div>
                         <label className="pswlb">Create Password:
-                            <input type="text"
+                            <input type="password"
+                                name="password"
                                 required
                                 className="pswin"
                                 value={password}
@@ -109,7 +111,8 @@ export default function SignUp() {
                     </div>
                     <div>
                         <label className="pswlb">Password Confirmation:
-                            <input type="text"
+                            <input type="password"
+                                name = "password"
                                 required
                                 className="pswin"
                                 value={password_confirmation}
