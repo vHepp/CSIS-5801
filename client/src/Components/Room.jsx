@@ -7,22 +7,22 @@ import { boardContext } from '../contexts/boardContext';
 
 const Room = (props) => {
   // state variables
-  const [roomUsers, setRoomUsers] = useState({i: 2, j: 2, name: (props.id)});
+  const [roomUsers, setRoomUsers] = useState({ i: 2, j: 2, name: (props.id) });
   const [roomID, setRoomID] = useState(props.id);
 
   // context variables
-  const { rooms, changeRooms, 
-          openRooms, changeOpenRooms, 
-          roomCount, changeRoomCount,
-          roomOneUsers, changeRoomOneUsers,
-          roomTwoUsers, changeRoomTwoUsers,
-          roomThreeUsers, changeRoomThreeUsers} = useContext(roomContext);
+  const { rooms, changeRooms,
+    openRooms, changeOpenRooms,
+    roomCount, changeRoomCount,
+    roomOneUsers, changeRoomOneUsers,
+    roomTwoUsers, changeRoomTwoUsers,
+    roomThreeUsers, changeRoomThreeUsers } = useContext(roomContext);
 
   // clear individual room
   function clearRoom() {
     let index = rooms.findIndex(e => e.id === roomID);
     console.log(`clearing room ${roomID} at ${index}`);
-    let newArray1 = rooms.slice(0,index);
+    let newArray1 = rooms.slice(0, index);
     let newArray2 = rooms.slice(index + 1);
     let newArray3 = newArray1.concat(newArray2);
     console.log(newArray3)
@@ -30,7 +30,7 @@ const Room = (props) => {
     console.table(roomUsers);
     changeOpenRooms(openRooms + 1);
     changeRoomCount(roomCount - 1);
-    
+
   }
 
   // add user based on input
@@ -42,25 +42,25 @@ const Room = (props) => {
     <div className="room-room">
       Room Name: {props.name}
       <div className="room-number">
-        Room Number: {}
+        Room Number: { }
       </div>
       <div className="room-number">
-        Users:{}
+        Users:{ }
       </div>
       <div>
-      <input id="username" placeholder="Username" className='home-input'></input>
-      <div>
-        <button className="button" onClick={() => addUser()}>Add User</button>
-      </div>
+        <input id="username" placeholder="Username" className='home-input'></input>
+        <div>
+          <button className="button" onClick={() => addUser()}>Add User</button>
+        </div>
       </div>
       <div className='room-link'>
         {props.LinkToWebex}
       </div>
-        <boardContext.Provider value={{
-          roomUsers, setRoomUsers
-        }}>
-        <Board roomID = {roomID}/>
-        </boardContext.Provider>
+      <boardContext.Provider value={{
+        roomUsers, setRoomUsers
+      }}>
+        <Board roomID={roomID} />
+      </boardContext.Provider>
       <button className='clear-button' onClick={() => clearRoom()}>
         Clear Room
       </button>

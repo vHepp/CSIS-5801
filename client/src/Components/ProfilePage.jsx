@@ -63,12 +63,12 @@ const ProfilePage = () => {
     console.log("handleUpdate")
   }
 
-  const deleteUser = () => {
-        dispatch({ type: "CLEAR", payload: null })
-        localStorage.setItem('user', null);
-    }
-
-
+  /*   const deleteUser = () => {
+          dispatch({ type: "CLEAR", payload: null })
+          localStorage.setItem('user', null);
+      }
+  
+   */
   return (
     <div className="ProfilePage">
 
@@ -94,7 +94,7 @@ const ProfilePage = () => {
 
         <button type="update" onClick={() => { handleUpdate() }} >Update Bio (doesn't do anything yet)</button>
       </div>
-      <button type='submit' onClick={() => deleteUser()}>Logout</button>
+      {/* <button type='submit' onClick={() => deleteUser()}>Logout</button> */}
     </div >
   )
 }

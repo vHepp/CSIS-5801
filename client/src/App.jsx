@@ -24,26 +24,26 @@ import InviteTest from './Components/InviteTest';
 const App = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const value = useMemo(() => ({ state, dispatch }), [state, dispatch]);
-    
+
   return (
     <BrowserRouter>
-    
+
       <userContext.Provider value={value}>
         <PageHeader />
         <NavBar />
         <Routes>
-          <Route path='/' element={<HomePage />} />
+          <Route path='/home' element={<HomePage />} />
+          <Route path='/' element={<Login />} />
           <Route path='/login' element={<Login />} />
           <Route path='/register' element={<SignUp />} />
           <Route path='/profile' element={<ProfilePage />} />
-          <Route path='/invite' element={<InviteTest />} />
 
 
           {/* to be implemented  */}
           {/* <Route path='/profile' element={<Profile />} /> */}
         </Routes>
       </userContext.Provider >
-      
+
     </BrowserRouter>
   );
 }

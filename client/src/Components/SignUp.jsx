@@ -5,6 +5,8 @@ import "../Styles/SignUp.css";
 import { useState } from 'react';
 import { userContext } from '../contexts/userContext';
 
+import profileIcon from "../Images/profile_icon.jpg"
+
 const config = {
     headers: { 'content-type': 'multipart/form-data' }
 }
@@ -17,10 +19,10 @@ async function signUpUser(formData) {
     }).then(data => data.json())
 }
 
-
 export default function SignUp() {
     const { state, dispatch } = useContext(userContext)
     const [image, setImage] = useState(null);
+    const [imageSelected, setImageSelected] = useState(false)
     const [email, setEmail] = useState('')
     const [name, setName] = useState('')
     const [password, setPassword] = useState('')
@@ -50,18 +52,36 @@ export default function SignUp() {
             dispatch({ type: "USER", payload: user })
             console.log(state)
 
+            setTimeout(() => { window.location.assign("/profile") }, 2500)
+
+
         }
-
-        else{
-            toast.error("There was a problem with your registration", {
-                position: toast.POSITION.TOP_RIGHT,
-
-            });
+        else {
+            console.table(token.errors)
+            token.errors.forEach(e => {
+                console.table(e)
+                if (e.email) {
+                    toast.error("Error: invalid email.", {
+                        position: toast.POSITION.TOP_RIGHT,
+                    });
+                }
+                else if (e.password) {
+                    toast.error("Error: Passwords do not match.", {
+                        position: toast.POSITION.TOP_RIGHT,
+                    });
+                }
+                else if (e.user) {
+                    toast.error("Error: User with that email already exists.", {
+                        position: toast.POSITION.TOP_RIGHT,
+                    });
+                }
+            })
         }
     }
 
     const onSelectFile = (event) => {
         setImage(event.target.files[0])
+        setImageSelected(true);
 
     };
 
@@ -71,7 +91,11 @@ export default function SignUp() {
                 <div className="box1">
                     <p><strong>Profile Picture</strong></p>
 
-                    <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+                    {imageSelected ?
+                        <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+                        :
+                        <img className='imagedisplay' alt="" width={"200px"} src={profileIcon} />
+                    }
                     <br></br>
                     <input
                         type="file"
@@ -120,41 +144,6 @@ export default function SignUp() {
                         Submit
                     </button>
                 </div>
-                <div className='results'>
-                    <img alt="" width={"125px"} src={image ? URL.createObjectURL(image) : 'alt'} />
-                    <h4>{email}</h4>
-                    <h4>{name}</h4>
-                    <h4>{password}</h4>
-                    <h4>{password_confirmation}</h4>
-                </div>
-                <div>
-                    <label className="pswlb">Create Password:
-                        <input type="text"
-                            required
-                            className="pswin"
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}></input>
-                    </label>
-                </div>
-                <div>
-                    <label className="pswlb">Password Confirmation:
-                        <input type="text"
-                            required
-                            className="pswin"
-                            value={password_confirmation}
-                            onChange={(e) => setPassword_confirmation(e.target.value)}></input>
-                    </label>
-                </div>
-                <button className='btn' onClick={(e) => onSubmit(e)}>
-                    Submit
-                </button>
-            </div>
-            <div className='results'>
-                <img alt="" width={"125px"} src={image ? URL.createObjectURL(image) : 'alt'} />
-                <h4>{email}</h4>
-                <h4>{name}</h4>
-                <h4>{password}</h4>
-                <h4>{password_confirmation}</h4>
             </div>
             <ToastContainer />
         </>

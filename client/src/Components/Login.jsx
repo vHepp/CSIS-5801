@@ -17,7 +17,7 @@ async function LoginUser(credentials) {
 const Login = () => {
     const { state, dispatch } = useContext(userContext);
 
-    
+
     console.log(state)
 
     const [email, setEmail] = useState('');
@@ -31,10 +31,10 @@ const Login = () => {
 
         if (token.success) {
             toast.success('Login Successful!', {
-            position: toast.POSITION.TOP_RIGHT,
-            
-        });
-        
+                position: toast.POSITION.TOP_RIGHT,
+
+            });
+
             localStorage.setItem('jwt', token.token);
             localStorage.setItem("user", JSON.stringify(token.message))
             const user = JSON.parse(localStorage.getItem("user"))
@@ -43,22 +43,22 @@ const Login = () => {
 
             //bad but effective redirect to profile page on successful login
 
-            setTimeout(() => {window.location.assign("/profile")}, 2500)
-            
+            setTimeout(() => { window.location.assign("/profile") }, 2500)
+
         }
-            else{
-                toast.error("Access Denied", {
-            position: toast.POSITION.TOP_RIGHT,
-            
-        });
-            }
+        else {
+            toast.error("Access Denied", {
+                position: toast.POSITION.TOP_RIGHT,
+
+            });
+        }
     }
 
-    
+
 
     return (
         <div className='login-box'>
-            
+
             <div className='username'>
                 <label >Email:
                     <input type="text"
@@ -79,8 +79,8 @@ const Login = () => {
             </div>
 
             <button type='submit' onClick={(e) => onSubmit()}> Login! </button>
-            
-           
+
+
             <ToastContainer />
 
         </div>
