@@ -115,14 +115,14 @@ const HomePage = () => {
         <div>
           <div className='home-OpenedRooms'>
             Opened Rooms:
-            <roomContext.Provider value={{{
+            <roomContext.Provider value={{
               rooms, changeRooms,
               roomCount, changeRoomCount,
               openRooms, changeOpenRooms,
               roomOneUsers, changeRoomOneUsers,
               roomTwoUsers, changeRoomTwoUsers,
               roomThreeUsers, changeRoomThreeUsers
-            }, RoomValue}}>
+            }}>
               {/* {rooms.map(room => {
                 return (
                   room.room
@@ -130,7 +130,7 @@ const HomePage = () => {
               })} */}
               {rooms.map(room => {
                 return (
-                  <Room name={room.name} id = {room.id}/>
+                  <Room name={room.name} id = {room.id} key = {room.id}/>
                 );
               })}
             </roomContext.Provider>
