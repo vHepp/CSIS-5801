@@ -53,7 +53,7 @@ export default function SignUp() {
 
         }
 
-        else{
+        else {
             toast.error("There was a problem with your registration", {
                 position: toast.POSITION.TOP_RIGHT,
 
@@ -112,7 +112,7 @@ export default function SignUp() {
                     <div>
                         <label className="pswlb">Password Confirmation:
                             <input type="password"
-                                name = "password"
+                                name="password"
                                 required
                                 className="pswin"
                                 value={password_confirmation}

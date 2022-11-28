@@ -64,10 +64,10 @@ const ProfilePage = () => {
   }
 
   const deleteUser = () => {
-        dispatch({ type: "CLEAR", payload: null })
-        localStorage.setItem('user', null);
-        window.location.assign("/login")
-    }
+    dispatch({ type: "CLEAR", payload: null })
+    localStorage.setItem('user', null);
+    window.location.assign("/login")
+  }
 
 
   return (
@@ -95,7 +95,7 @@ const ProfilePage = () => {
 
         <button type="update" onClick={() => { handleUpdate() }} >Update Bio (doesn't do anything yet)</button>
       </div>
-      <button type='submit' onClick={() => deleteUser()}>Logout</button>
+      {/* <button type='submit' onClick={() => deleteUser()}>Logout</button> */}
     </div >
   )
 }

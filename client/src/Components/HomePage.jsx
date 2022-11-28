@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useContext, useReducer, useMemo} from 'react'
+import { useState, useContext, useReducer, useMemo } from 'react'
 import '../Styles/HomePage.css'
 import Room from './Room.jsx'
 import InviteTest from './InviteTest.jsx'
@@ -29,7 +29,7 @@ const HomePage = () => {
   // grab displayName and create greeting NOT WORKING
   let name;
   let greeting;
-  if(state) {
+  if (state) {
     name = state.displayName;
     greeting = <span>Hi {name},</span>
   } else {
@@ -40,7 +40,7 @@ const HomePage = () => {
   function getID() {
     let newID;
     let unique = false;
-    while(!unique) {
+    while (!unique) {
       newID = ((Math.random() * 3) + 1);
       newID = newID.toFixed(3);
       if (roomIDs.includes(newID)) {
@@ -60,7 +60,7 @@ const HomePage = () => {
       setHomeError('Maximum number of rooms reached.');
       return;
     }
-    
+
     //get the input name and then empty the input field
     let name = document.getElementById('addRoomBtn').value;
     document.getElementById('addRoomBtn').value = "";
@@ -70,16 +70,16 @@ const HomePage = () => {
       setHomeError();
       let id = getID();
       console.log(id);
-      changeRooms(rooms => [...rooms, {id: id, name: name, /* room: <Room name={name} id = {id}/> */}]);
+      changeRooms(rooms => [...rooms, { id: id, name: name, /* room: <Room name={name} id = {id}/> */ }]);
       changeRoomCount(roomCount + 1);
       changeOpenRooms(openRooms - 1);
     } else {
-        if (name.length <= 0) {
-          setHomeError('Room names can not be blank.');
-        } else {
-          setHomeError('That room name is already in use.');
-        } 
-        return;
+      if (name.length <= 0) {
+        setHomeError('Room names can not be blank.');
+      } else {
+        setHomeError('That room name is already in use.');
+      }
+      return;
     }
   }
 
@@ -97,8 +97,11 @@ const HomePage = () => {
           Use the box below to name an open room. There is a limit of 3 rooms.
         </p>
         <div>
-          <input id="addRoomBtn" placeholder="Room Name" className='home-input'>
-          </input>
+          <input
+            id="addRoomBtn"
+            placeholder="Room Name"
+            className="home-input"
+          ></input>
           <p>
             <button className="button" onClick={() => addRoom()}>
               Add Room
@@ -113,7 +116,7 @@ const HomePage = () => {
           </div>
         </div>
         <div>
-          <div className='home-OpenedRooms'>
+          <div className="home-OpenedRooms">
             Opened Rooms:
             <roomContext.Provider value={{
               rooms, changeRooms,
@@ -130,7 +133,7 @@ const HomePage = () => {
               })} */}
               {rooms.map(room => {
                 return (
-                  <Room name={room.name} id = {room.id} key = {room.id}/>
+                  <Room name={room.name} id={room.id} key={room.id} />
                 );
               })}
             </roomContext.Provider>
@@ -138,7 +141,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default HomePage
+export default HomePage;
