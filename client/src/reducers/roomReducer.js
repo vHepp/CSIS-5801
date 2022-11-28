@@ -1,6 +1,6 @@
-export const initialState = null;
-export const reducer = (state, action) => {
-    if (action.type === "USER") {
+export const RoomInitialState = null;
+export const RoomReducer = (state, action) => {
+    if (action.type === "ROOM") {
         
         return action.payload
     }

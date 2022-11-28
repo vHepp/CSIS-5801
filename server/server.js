@@ -1,6 +1,7 @@
 const express = require('express')
 const cors = require('cors')
-
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
 require("dotenv").config({ path: "./config.env" });
 
 //importing routes
@@ -12,9 +13,16 @@ const PORT = process.env.PORT || 8001; // these will be set up with a .env file 
 const MONGO_URI = process.env.MONGO_URI;
 
 const server = express();
+mongoose
+    .connect(MONGO_URI, {
 
+    })
+    .then(() => console.log('DB Connected'));
+    
+server.use(bodyParser.json())
 server.use(cors())
 server.use(express.json());
+
 
 //routes
 server.use('/api/login/', LoginRoute)
