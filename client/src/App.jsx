@@ -26,22 +26,20 @@ const App = () => {
   return (
     <>
       <BrowserRouter>
-
         <userContext.Provider value={value}>
           <PageHeader />
           <NavBar />
           <Routes>
-            <Route path='/home' element={<HomePage />} />
-            <Route path='/' element={<Login />} />
-            <Route path='/login' element={<Login />} />
-            <Route path='/register' element={<SignUp />} />
-            <Route path='/profile' element={<ProfilePage />} />
+            <Route path="/home" element={<HomePage />} />
+            <Route path="/" element={<Login />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/register" element={<SignUp />} />
+            <Route path="/profile" element={<ProfilePage />} />
 
             {/* to be implemented  */}
             {/* <Route path='/profile' element={<Profile />} /> */}
           </Routes>
-        </userContext.Provider >
-
+        </userContext.Provider>
       </BrowserRouter>
       <div
         style={{
@@ -53,7 +51,7 @@ const App = () => {
         }}
       >
         <p> Created by KeithBoard: </p>
-        <p> This project is in honor of Kevin Snobnosky.</p>
+        <p> This project is in honor of Kevin Snobnosky. </p>
         <a
           href="https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt"
           rel="noreferrer"
