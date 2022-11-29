@@ -72,7 +72,7 @@ export default function SignUp() {
                 <div className="box1">
                     <p><strong>Profile Picture</strong></p>
 
-                    <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+                    <img className='imagedisplay' alt="" width={"200px "} src={image ? URL.createObjectURL(image) : 'alt'} />
                     <br></br>
                     <input
                         type="file"
