@@ -48,7 +48,9 @@ const Room = (props) => {
         Users:{ }
       </div>
       <div>
-        <input id="username" placeholder="Username" className='home-input'></input>
+        <div>
+          <input id="username" placeholder="Username" className='home-input'></input>
+        </div>
         <div>
           <button className="button" onClick={() => addUser()}>Add User</button>
         </div>

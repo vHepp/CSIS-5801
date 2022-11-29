@@ -42,8 +42,8 @@ const Tile = (props) => {
     }
   } else {
     if (occupied) {
-      return (<div className='Tile' >
-        <div >
+      return (<div className='Tile'>
+        <div className='user-marker'>
           {roomUsers.name}
         </div>
       </div>)

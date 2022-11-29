@@ -1,11 +1,21 @@
 .Tile {
   width: 99px;
   height: 99px;
-  background-color:green;
+  background-color:rgb(234, 237, 215);
+  
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }
+
 
 .Tile-Table {
   width: 99px;
   height: 99px;
-  background-color: cyan;
+  background-color: #3c4340;
+
+  font-size: 28px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
 }

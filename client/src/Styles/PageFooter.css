@@ -1,0 +1,30 @@
+#footer {
+    height:fit-content;
+    position:relative;
+    bottom: 0px;
+    width: 100vw;
+    display: flex;
+    justify-content: left;
+    background-color: #2d2d2d;
+    border-top: solid var(--stroke) var(--box-outline);
+
+    height:18vh;
+}
+
+.footer-contents{
+    width: 100vw;
+
+    font-family: var(--font1);
+    font-size: 12pt;
+    color: #ffffff9f;
+    text-align: center;
+
+    display: flex;
+    justify-content:space-evenly;
+    padding:10px;
+
+}
+
+.footer-logo{
+    font-size: 20pt;
+}

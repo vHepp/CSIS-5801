@@ -81,19 +81,19 @@ const ProfilePage = () => {
         {/* <p>
           Image URL: <b>{pictureURL}</b>
         </p> */}
-        <p>
+        <div>
           <b>{name}</b>
-        </p>
-        <p>
+        </div>
+        <div>
           Email: <b>{email}</b>
-        </p>
+        </div>
         <div>
 
           <textarea id="bio" name="message" rows="5" cols="50" value={bio} onChange={(e) => { setBio(e.target.value) }} placeholder="A little about yourself..."></textarea>
         </div>
 
 
-        <button type="update" onClick={() => { handleUpdate() }} >Update Bio (doesn't do anything yet)</button>
+        <button type="update" className='button' onClick={() => { handleUpdate() }} >Update Bio</button>
       </div>
       {/* <button type='submit' onClick={() => deleteUser()}>Logout</button> */}
     </div >
