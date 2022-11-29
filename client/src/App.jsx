@@ -42,10 +42,7 @@ const App = () => {
           </Routes>
         </userContext.Provider>
       </BrowserRouter>
-      <PageFooter>
-
-        
-      </PageFooter>
+      <PageFooter />
     </>
   );
 };

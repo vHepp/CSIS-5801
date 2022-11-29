@@ -4,12 +4,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import "../Styles/SignUp.css";
 import { useState } from 'react';
 import { userContext } from '../contexts/userContext';
-
-import profileIcon from "../Images/profile_icon.jpg"
+import profileIcon from '../Images/profile_icon.jpg'
 
 const config = {
-  headers: { "content-type": "multipart/form-data" },
-};
+  headers: { 'content-type': 'multipart/form-data' }
+}
 
 async function signUpUser(formData) {
   return fetch("/api/register/signUp", {
@@ -19,10 +18,10 @@ async function signUpUser(formData) {
   }).then(data => data.json())
 }
 
+
 export default function SignUp() {
   const { state, dispatch } = useContext(userContext)
   const [image, setImage] = useState(null);
-  const [imageSelected, setImageSelected] = useState(false)
   const [email, setEmail] = useState('')
   const [name, setName] = useState('')
   const [password, setPassword] = useState('')
@@ -51,38 +50,20 @@ export default function SignUp() {
       const user = JSON.parse(localStorage.getItem("user"))
       dispatch({ type: "USER", payload: user })
       console.log(state)
-
       setTimeout(() => { window.location.assign("/home") }, 2500)
-
-
     }
+
     else {
-      console.table(token.errors)
-      token.errors.forEach(e => {
-        console.table(e)
-        if (e.email) {
-          toast.error("Error: invalid email.", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-        else if (e.password) {
-          toast.error("Error: Passwords do not match.", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-        else if (e.user) {
-          toast.error("Error: User with that email already exists.", {
-            position: toast.POSITION.TOP_RIGHT,
-          });
-        }
-      })
+      toast.error("There was a problem with your registration", {
+        position: toast.POSITION.TOP_RIGHT,
+
+      });
     }
   }
 
   const onSelectFile = (event) => {
     setImage(event.target.files[0])
-    setImageSelected(true);
-  };
+  }
 
   return (
     <>
@@ -92,10 +73,10 @@ export default function SignUp() {
             <p>
               <strong>Profile Picture</strong>
             </p>
-            {imageSelected ?
-              <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
-              :
+            {!image ?
               <img className='imagedisplay' alt="" width={"200px"} src={profileIcon} />
+              :
+              <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
             }
             <br></br>
             <input
