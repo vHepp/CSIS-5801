@@ -1,8 +1,25 @@
 .Board-wrapper {
   display: flex;
   flex-flow: column nowrap;
-  margin: 10px;
+  margin: 6px;
+  align-items: center;
+  color: cyan;
 
+  background-color: var(--box-color);
+  border: solid var(--stroke) var(--box-outline);
+  padding: 5vh;
+}
+
+.user-marker {
+  background-color: #5946b0;
+  border: solid var(--stroke) #372568;
+  height: 85px;
+  width: 85px;
+  border-radius: 50%;
+  font-size: 28px;
+
+  display:flex;
+  justify-content: space-evenly;
   align-items: center;
 }
 
@@ -32,5 +49,14 @@
 
 button {
   margin: 1px;
-  padding: 7px;
+  padding-left: 10px;
+  padding-right: 10px;
+
+  font-family: var(--font1);
+  font-weight: bold;
+  font-size: 16pt;
+  color: var(--text-dark);
+
+  background-color: var(--bg-color);
+  border: solid var(--stroke) var(--bg-outline);
 }

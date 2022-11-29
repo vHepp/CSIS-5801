@@ -52,7 +52,7 @@ export default function SignUp() {
       dispatch({ type: "USER", payload: user })
       console.log(state)
 
-      setTimeout(() => { window.location.assign("/profile") }, 2500)
+      setTimeout(() => { window.location.assign("/home") }, 2500)
 
 
     }
@@ -88,61 +88,66 @@ export default function SignUp() {
     <>
       <div className="signup-main">
         <div className="box1">
-          <p>
-            <strong>Profile Picture</strong>
-          </p>
-          {imageSelected ?
-            <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
-            :
-            <img className='imagedisplay' alt="" width={"200px"} src={profileIcon} />
-          }
-          <br></br>
-          <input
-            type="file"
-            title="j"
-            name="myImage"
-            onChange={(event) => onSelectFile(event)}
-          />
+          <div class="flex-child">
+            <p>
+              <strong>Profile Picture</strong>
+            </p>
+            {imageSelected ?
+              <img className='imagedisplay' alt="" width={"200px"} src={image ? URL.createObjectURL(image) : 'alt'} />
+              :
+              <img className='imagedisplay' alt="" width={"200px"} src={profileIcon} />
+            }
+            <br></br>
+            <input
+              type="file"
+              title="j"
+              name="myImage"
+              onChange={(event) => onSelectFile(event)}
+            />
+          </div>
 
-          <div className="usr">
-            <label >Register Email:
-              <input type="text"
-                required
-                className="username"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}></input>
-            </label>
+          <div class="flex-child">
+            <div className="usr">
+              <label >Register Email:
+                <input type="text"
+                  required
+                  className="username"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}></input>
+              </label>
+            </div>
+            <div className='name'>
+              <label >Full Name:
+                <input type="text"
+                  required
+                  className="username"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}></input>
+              </label>
+            </div>
+            <div>
+              <label className="pswlb">Create Password:
+                <input type="password"
+                  required
+                  className="pswin"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}></input>
+              </label>
+            </div>
+            <div>
+              <label className="pswlb">Password Confirmation:
+                <input type="password"
+                  required
+                  className="pswin"
+                  value={password_confirmation}
+                  onChange={(e) => setPassword_confirmation(e.target.value)}></input>
+              </label>
+            </div>
+            <button className='signup-button' onClick={() => onSubmit()}>
+              Submit
+            </button>
           </div>
-          <div className='name'>
-            <label >Full Name:
-              <input type="text"
-                required
-                className="username"
-                value={name}
-                onChange={(e) => setName(e.target.value)}></input>
-            </label>
-          </div>
-          <div>
-            <label className="pswlb">Create Password:
-              <input type="text"
-                required
-                className="pswin"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}></input>
-            </label>
-          </div>
-          <div>
-            <label className="pswlb">Password Confirmation:
-              <input type="text"
-                required
-                className="pswin"
-                value={password_confirmation}
-                onChange={(e) => setPassword_confirmation(e.target.value)}></input>
-            </label>
-          </div>
-          <button className='signup-button' onClick={() => onSubmit()}>
-            Submit
-          </button>
+
         </div>
       </div>
       <ToastContainer />

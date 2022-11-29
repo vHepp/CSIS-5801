@@ -1,14 +1,15 @@
 .login-box {
-    width: 40%;
+    width: 30em;
     height: 9em;
     background-color: var(--bg-color);
     display: block;
     margin: auto;
-    margin-top: 0em;
+    justify-content: center;
 
     text-align:center;
     border: solid var(--stroke) var(--bg-outline);
     padding: 10px;
+    border-radius: 7px;
 }
 
 label {
@@ -27,8 +28,8 @@ label {
 
 .login-main {
     background-color: var(--bg2-color);
-    height:36em;
-    padding-top:3em;
+    min-height: 60.5vh;
+    padding-top: 5vh;
 }
 
 .login-button {
@@ -37,6 +38,7 @@ label {
     font-family: var(--font1);
     font-size: 16pt;
 	font-weight: bold;
+    width: fit-content;
 
     margin: 25px;
     margin-left:5px;
@@ -45,6 +47,10 @@ label {
 	margin-bottom: 8px;
 
     border: solid var(--stroke) var(--box-outline);
+}
+
+.login-button:hover {
+    color: var(--text-hover);
 }
 
 input {

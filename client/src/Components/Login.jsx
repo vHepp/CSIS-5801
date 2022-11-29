@@ -41,9 +41,9 @@ const Login = () => {
             console.log(user)
             dispatch({ type: "USER", payload: token.message })
 
-            //bad but effective redirect to profile page on successful login
+            //bad but effective redirect to home page on successful login
 
-            setTimeout(() => { window.location.assign("/profile") }, 2500)
+            setTimeout(() => { window.location.assign("/home") }, 2500)
 
         }
         else {
@@ -57,32 +57,34 @@ const Login = () => {
 
 
     return (
-        <div className='login-box'>
+        <div className="login-main">
+            <div className='login-box'>
 
-            <div className='username'>
-                <label >Email:
-                    <input type="text"
-                        required
-                        className="username"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}></input>
-                </label>
+                <div className='username'>
+                    <label >Email:
+                        <input type="text"
+                            required
+                            className="username"
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}></input>
+                    </label>
+                </div>
+                <div className='password'>
+                    <label >Password:
+                        <input type="password"
+                            required
+                            className="username"
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}></input>
+                    </label>
+                </div>
+
+                <button type='submit' className='login-button' onClick={(e) => onSubmit()}> Login! </button>
+
+
+                <ToastContainer />
+
             </div>
-            <div className='password'>
-                <label >Password:
-                    <input type="text"
-                        required
-                        className="username"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}></input>
-                </label>
-            </div>
-
-            <button type='submit' onClick={(e) => onSubmit()}> Login! </button>
-
-
-            <ToastContainer />
-
         </div>
     )
 }

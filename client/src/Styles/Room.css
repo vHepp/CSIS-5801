@@ -1,17 +1,20 @@
 .room-room {
 	margin: 10px;
+	margin-top: -10px;
 	font-size: 40px;
 	border: solid var(--stroke) var(--bg-outline);
-	border-radius: 15px;
 	background-color: var(--bg-color);
 	color: var(--text-dark);
-	font-family: var(--font1);
+	font-family: var(--font2);
+	font-weight: bold;
+	border-radius: 7px;
 }
 
 .room-number {
     font-size:24px;
 	color: var(--text-dark);
-	font-family: var(--font1);
+	font-family: var(--font2);
+	font-weight: bold;
 }
 
 .room-link {
