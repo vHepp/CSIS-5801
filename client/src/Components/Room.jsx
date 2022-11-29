@@ -14,9 +14,7 @@ const Room = (props) => {
   const { rooms, changeRooms,
     openRooms, changeOpenRooms,
     roomCount, changeRoomCount,
-    roomOneUsers, changeRoomOneUsers,
-    roomTwoUsers, changeRoomTwoUsers,
-    roomThreeUsers, changeRoomThreeUsers } = useContext(roomContext);
+    } = useContext(roomContext);
 
   // clear individual room
   function clearRoom() {
@@ -45,13 +43,6 @@ const Room = (props) => {
         Room Number: { }
       </div>
       <div className="room-number">
-        Users:{ }
-      </div>
-      <div>
-        <input id="username" placeholder="Username" className='home-input'></input>
-        <div>
-          <button className="button" onClick={() => addUser()}>Add User</button>
-        </div>
       </div>
       <div className='room-link'>
         {props.LinkToWebex}
