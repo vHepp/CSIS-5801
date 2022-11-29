@@ -63,12 +63,13 @@ const ProfilePage = () => {
     console.log("handleUpdate")
   }
 
-  /*   const deleteUser = () => {
-          dispatch({ type: "CLEAR", payload: null })
-          localStorage.setItem('user', null);
-      }
-  
-   */
+  const deleteUser = () => {
+    dispatch({ type: "CLEAR", payload: null })
+    localStorage.setItem('user', null);
+    window.location.assign("/login")
+  }
+
+
   return (
     <div className="ProfilePage">
 
