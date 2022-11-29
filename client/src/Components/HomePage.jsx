@@ -7,6 +7,7 @@ import Board from './classroom/Board.jsx'
 import { roomContext } from "../contexts/roomContext.js";
 import { userContext } from "../contexts/userContext.js";
 import { RoomReducer, RoomInitialState } from '../reducers/roomReducer';
+import ProfilePage from './ProfilePage.jsx';
 
 const HomePage = () => {
   // reducer
@@ -86,38 +87,49 @@ const HomePage = () => {
   return (
     <div className='home-main'>
       <div className='home-intro'>
-        <p>
-          {greeting} welcome to KeithBoard!
-        </p>
-        <p>
-          An interactive virtual classroom designed for
-          group communication.
-        </p>
-        <p>
-          Use the box below to name an open room. There is a limit of 3 rooms.
-        </p>
-        <div>
-          <input
-            id="addRoomBtn"
-            placeholder="Room Name"
-            className="home-input"
-          ></input>
-          <p>
-            <button className="button" onClick={() => addRoom()}>
-              Add Room
-            </button>
-          </p>
-          <p id="home-error">{homeError}</p>
-          <div>
-            Room Count: {roomCount}
+        <div className='home-flexbox'>
+          <div class='flex-child'>
+            <p>
+              {greeting} welcome to KeithBoard!
+            </p>
+            <p>
+              An interactive virtual classroom designed for
+              group communication.
+            </p>
+            <p>
+              Use the box below to name an open room. There is a limit of 3 rooms.
+            </p>
+            <div>
+              <input
+                id="addRoomBtn"
+                placeholder="Room Name"
+                className="home-input"
+              ></input>
+              <p>
+                <button className="button" onClick={() => addRoom()}>
+                  Add Room
+                </button>
+              </p>
+              <p id="home-error">{homeError}</p>
+              <div>
+                Room Count: {roomCount}
+              </div>
+              <div>
+                Available Rooms: {openRooms}
+              </div>
+              <div className='home-OpenedRooms-header'>
+                
+                Opened Rooms:
+              </div>
+            </div>
           </div>
-          <div>
-            Available Rooms: {openRooms}
+          <div class='flex-child'>
+            <ProfilePage></ProfilePage>
           </div>
         </div>
         <div>
           <div className="home-OpenedRooms">
-            Opened Rooms:
+
             <roomContext.Provider value={{
               rooms, changeRooms,
               roomCount, changeRoomCount,
@@ -141,6 +153,7 @@ const HomePage = () => {
         </div>
       </div>
     </div>
+
   );
 };
 

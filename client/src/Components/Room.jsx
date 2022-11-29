@@ -14,7 +14,7 @@ const Room = (props) => {
   const { rooms, changeRooms,
     openRooms, changeOpenRooms,
     roomCount, changeRoomCount,
-    } = useContext(roomContext);
+  } = useContext(roomContext);
 
   //variables
   let index = rooms.findIndex(e => e.id === roomID);

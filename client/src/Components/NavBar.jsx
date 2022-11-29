@@ -31,7 +31,6 @@ const NavBar = () => {
                 (
                     <>
                         <NavLink className='navbar-item' to='/home'>Home</NavLink>
-                        <NavLink className='navbar-item' to='/profile'>Profile</NavLink>
                         <NavLink className='navbar-item' onClick={() => {
                             deleteUser();
                             toast.success('Logout Successful', {

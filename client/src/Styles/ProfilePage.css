@@ -1,27 +1,42 @@
 .ProfilePage {
     text-align: center;
     padding: 10px;
-    background-color: var(--bg2-color);
-    height: 38em;
+    background-color: var(--bg-color);
+    border: solid var(--stroke) var(--bg-outline);
+    border-radius: 7px;
 }
 
 .user-image {
-    height: 256px;
-    width: 256px;
+    height: 128px;
+    width: 128px;
     object-fit: cover;
     overflow: hidden;
-    border-radius: 128px;
+    border-radius: 50%;
 }
 
 .user-data {
-    background-color: var(--bg2-color);
+    background-color: var(--bg-color);
     border: solid 0px var(--bg-outline);
     font-family: var(--font2);
-    color: var(--text-light);
-    text-shadow: 3px 3px 5px #000000;
+    color: var(--text-dark);
+    text-shadow: 3px 3px 5px #00000045;
 
-    margin: 10px;
-    padding: 10px;
+    margin: 0px;
     font-size: 24px;
     text-align: center;
+}
+
+.button {
+    font-family: var(--font1);
+    font-weight: bold;
+    font-size: 16pt;
+    color: var(--text-light);
+
+    background-color: var(--box-color);
+    border: solid var(--stroke) var(--box-outline);
+    padding: 10px;
+}
+
+button:hover {
+    color: var(--text-hover);
 }

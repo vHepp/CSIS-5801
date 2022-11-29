@@ -10,6 +10,7 @@ import Login from "./Components/Login";
 import SignUp from "./Components/SignUp";
 import ProfilePage from "./Components/ProfilePage";
 import PageHeader from "./Components/PageHeader";
+import PageFooter from "./Components/PageFooter";
 
 //Reducers
 import { reducer, initialState } from "./reducers/userReducer";
@@ -41,25 +42,7 @@ const App = () => {
           </Routes>
         </userContext.Provider>
       </BrowserRouter>
-      <div
-        style={{
-          display: "flex",
-          flexFlow: "row nowrap",
-          textAlign: "center",
-          justifyContent: "center",
-          justifyItems: "center",
-        }}
-      >
-        <p> Created by KeithBoard: </p>
-        <p> This project is in honor of Kevin Snobnosky. </p>
-        <a
-          href="https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt"
-          rel="noreferrer"
-          target="_blank"
-        >
-          MIT License
-        </a>
-      </div>
+      <PageFooter />
     </>
   );
 };

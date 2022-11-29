@@ -1,23 +1,25 @@
 .signup-main {
     background-color: var(--bg2-color);
-    height:fit-content;
-    padding-top: 3em;
-    padding-bottom:10em;
+    min-height: 60.5vh;
+    padding-top: 5vh;
 }
 
 .box1 {
-    width: 40%;
+    width: fit-content;
     height: fit-content;
     background-color: var(--bg-color);
     display: block;
     margin: auto;
     border: solid var(--stroke) var(--bg-outline);
-    padding: 10px;
+    padding: 20px;
+
+    display:flex;
 
     text-align: center;
     color: var(--text-dark);
     font-family: var(font1);
     font-size:14pt;
+    border-radius: 7px;
 }
 
 .box1>label {
@@ -42,20 +44,19 @@
     font-size: 16pt;
 	font-weight: bold;
 
-    margin: 25px;
-    margin-left:5px;
-    padding-left:15px;
-    padding-right:15px;
-	margin-bottom: 8px;
+    margin: 5vh;
+    margin-left: 5vh;
+    margin-bottom: 5vh;
+    padding-left: 2vw;
+    padding-right: 2vw;
 
     border: solid var(--stroke) var(--box-outline);
-
 }
 
 .imagedisplay {
-    width:256px;
-    height:256px;
-    border-radius:128px;
+    width:200;
+    height:200;
+    border-radius:100px;
     object-fit:cover;
     overflow:hidden;
 }

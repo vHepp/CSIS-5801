@@ -7,10 +7,10 @@ import { boardContext } from '../../contexts/boardContext';
 const Board = (props) => {
   //context variables
   const { roomUsers, setRoomUsers } = useContext(boardContext);
-  
+
   //state variables
   const [roomID, setRoomID] = useState(props.roomID);
-  
+
   //board axis
   const horizontalAxis = [0, 1, 2, 3, 4];
   const verticalAxis = [0, 1, 2, 3, 4];
@@ -91,17 +91,18 @@ const Board = (props) => {
     }
   }
 
+
   return (
     <div className='Board-wrapper'>
       <div className="Board">{board}</div>
       <div>
         <div className='button-top'>
-          <button onClick={() => moveUp()}>Up</button>
+          <button onClick={() => moveUp()}>↑</button>
         </div>
         <div className='button-bottom'>
-          <button onClick={() => moveLeft()}>Left</button>
-          <button onClick={() => moveDown()}>Down</button>
-          <button onClick={() => moveRight()}>Right</button>
+          <button onClick={() => moveLeft()}>←</button>
+          <button onClick={() => moveDown()}>↓</button>
+          <button onClick={() => moveRight()}>→</button>
         </div>
       </div>
     </div>
