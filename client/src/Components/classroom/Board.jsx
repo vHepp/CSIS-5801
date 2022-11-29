@@ -7,10 +7,10 @@ import { boardContext } from '../../contexts/boardContext';
 const Board = (props) => {
   //context variables
   const { roomUsers, setRoomUsers } = useContext(boardContext);
-  
+
   //state variables
   const [roomID, setRoomID] = useState(props.roomID);
-  
+
   //board axis
   const horizontalAxis = [0, 1, 2, 3, 4];
   const verticalAxis = [0, 1, 2, 3, 4];

@@ -14,13 +14,13 @@ const Room = (props) => {
   const { rooms, changeRooms,
     openRooms, changeOpenRooms,
     roomCount, changeRoomCount,
-    roomOneUsers, changeRoomOneUsers,
-    roomTwoUsers, changeRoomTwoUsers,
-    roomThreeUsers, changeRoomThreeUsers } = useContext(roomContext);
+  } = useContext(roomContext);
+
+  //variables
+  let index = rooms.findIndex(e => e.id === roomID);
 
   // clear individual room
   function clearRoom() {
-    let index = rooms.findIndex(e => e.id === roomID);
     console.log(`clearing room ${roomID} at ${index}`);
     let newArray1 = rooms.slice(0, index);
     let newArray2 = rooms.slice(index + 1);
@@ -42,18 +42,9 @@ const Room = (props) => {
     <div className="room-room">
       Room Name: {props.name}
       <div className="room-number">
-        Room Number: { }
+        Room Number: {index + 1}
       </div>
       <div className="room-number">
-        Users:{ }
-      </div>
-      <div>
-        <div>
-          <input id="username" placeholder="Username" className='home-input'></input>
-        </div>
-        <div>
-          <button className="button" onClick={() => addUser()}>Add User</button>
-        </div>
       </div>
       <div className='room-link'>
         {props.LinkToWebex}

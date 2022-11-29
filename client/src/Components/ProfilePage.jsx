@@ -13,7 +13,6 @@ const ProfilePage = () => {
   const [name, setName] = useState("Robbie")
   const [pictureURL, setPictureURL] = useState("4479.jpeg")
   const [picture, setPicture] = useState(Image)
-  const [bio, setBio] = useState("")
 
 
   const getImage = () => {
@@ -58,11 +57,6 @@ const ProfilePage = () => {
     }
   }, [state])
 
-
-  const handleUpdate = () => {
-    console.log("handleUpdate")
-  }
-
   const deleteUser = () => {
     dispatch({ type: "CLEAR", payload: null })
     localStorage.setItem('user', null);
@@ -87,13 +81,6 @@ const ProfilePage = () => {
         <div>
           Email: <b>{email}</b>
         </div>
-        <div>
-
-          <textarea id="bio" name="message" rows="5" cols="50" value={bio} onChange={(e) => { setBio(e.target.value) }} placeholder="A little about yourself..."></textarea>
-        </div>
-
-
-        <button type="update" className='button' onClick={() => { handleUpdate() }} >Update Bio</button>
       </div>
       {/* <button type='submit' onClick={() => deleteUser()}>Logout</button> */}
     </div >
